@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1786521167365,
+      "tag": "0000_polite_serpent_society",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1786521336224,
+      "tag": "0001_loud_cerise",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1786532152823,
+      "tag": "0002_uneven_leo",
+      "breakpoints": true
+    }
+  ]
+}

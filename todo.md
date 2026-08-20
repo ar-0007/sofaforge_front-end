@@ -1,0 +1,59 @@
+# Sofa Co. Custom Commerce TODO
+
+- [x] Initialize database schema in `drizzle/schema.ts` for products, series, variants, custom configurations, orders, inquiries, and newsletter subscribers
+- [x] Create database query helpers in `server/db.ts` and tRPC procedures in `server/routers.ts`
+- [x] Implement luxurious editorial design system (The Art of Living) in `client/src/index.css` and typography
+- [x] Build Homepage with hero slider, brand messaging, featured series, and CTAs
+- [x] Build Product Catalog / Shop pages with series filtering (Bobby, Diane, Isla, Nimbus, Paloma, Stanton, Stanton II) and carousel views
+- [x] Build Product Detail Page with image gallery, starting-from pricing, fabric/configuration selectors, and cart integration
+- [x] Build Custom Studio configurator with multi-step flow (shape, fabric, colour, size) and live price calculation
+- [x] Build Shopping Cart and custom order checkout backend
+- [x] Build Customer Account area with sign-in, order history, and saved configurations
+- [x] Build Static brand & support pages (Our Story, Craftsmanship, Sustainability, Lookbook, Shipping & Returns, Care Guide)
+- [x] Build Contact page with exact inquiry categories (Residential, Commercial, Product Inquiry) and showroom info
+- [x] Build Newsletter signup with DB capture and owner notifications
+- [x] Build Admin Panel for managing products, series, pricing, inquiries, and orders
+- [x] Write Vitest test suite and verify build & runtime stability
+- [x] Fix React warning: remove nested <a> markup on homepage and storefront layout while preserving link navigation
+- [x] Upgrade storefront visual system with modern editorial furniture styling, refined typography, and responsive spacing
+- [x] Add Framer Motion entrance, hover, carousel, and page-transition animations
+- [x] Redesign Homepage, Shop, Product Detail, and Custom Studio layouts with animated interactions
+- [x] Add missing customer experience pages for Wishlist, Swatch Request, and Room Planner guide
+- [x] Verify redesigned routes with type checks, tests, and responsive screenshots
+- [x] Add shared route-level page transitions with Framer Motion
+- [x] Add meaningful redesigned storefront verification coverage beyond placeholder sanity tests
+- [x] Add UI-level verification for the redesigned Home, Shop, Product Detail, and Custom Studio experiences
+- [x] Add route/component-level tests for Home, Shop, Product Detail, and Custom Studio render states
+- [x] Capture and review a Product Detail screenshot as part of redesigned route verification
+- [x] Document visual review outcome for the Product Detail screenshot
+- [x] Improve scrollbar styling and horizontal-scroll affordances across the storefront
+- [x] Audit and fix responsive layouts at desktop, tablet, and mobile breakpoints
+- [x] Add or refine toast messages for cart, configuration, inquiry, newsletter, and account actions
+- [x] Optimize component code, repeated renders, and image loading behavior
+- [x] Add performance and interaction coverage for the improvements
+- [x] Verify desktop and mobile routes, then save a new checkpoint
+- [x] Fix products query failure on homepage and add safe database error handling
+- [x] Verify homepage product loading with checks, tests, and screenshots
+- [x] Verify Home, Shop, Product Detail, Custom Studio, and Contact at a tablet breakpoint and fix any layout issues
+- [x] Add and verify toast feedback for account-area actions and empty/error states
+- [x] Complete a broader render optimization pass beyond CartContext and verify it
+- [x] Save a fresh checkpoint after the database fallback and UX performance fixes
+- [x] Audit remaining storefront, database, and admin issues before expansion; live database work remains intentionally deferred by user request
+- [x] Extend schema for dynamic product publishing, homepage placements, reviews, cart activity, reminders, and audit logs; live migration is tracked separately
+- [x] Build admin-only CRUD code for products, series, gallery URLs, variants, visibility, and storefront placement
+- [x] Build secure admin views code for orders, order details, inquiries, review moderation, users, and active carts
+- [x] Add a manually triggered reminder-draft workflow with explicit consent confirmation and delivery status model
+- [x] Replace the current simple admin page with a responsive role-protected management dashboard
+- [x] Connect storefront sections to admin-managed content settings and product visibility in code
+- [x] Add backend and UI tests for admin permissions and database-independent management screens
+- [x] Verify desktop, tablet, and mobile admin workflows and save a checkpoint
+- [x] Complete database-independent admin dashboard states and empty data guidance
+- [x] Add code-level coverage for admin dashboard rendering and role protection
+- [x] Verify the admin UI without a database connection
+- [x] Add admin variant CRUD and gallery-URL management to the codebase
+- [x] Clarify approved-review display and moderation workflow in the admin code
+- [x] Defer the prepared database migration until a live database is connected, per user direction; migration remains unapplied in `drizzle/0002_uneven_leo.sql`
+- [x] Add database-ready delete actions for products, series, and storefront placements
+- [x] Add and verify the explicit consent confirmation control in the reminder draft form
+- [x] Add consent confirmation to the original AdminPanel reminder tab and test both checked and unchecked states
+- [x] Add component-level tests proving unchecked consent blocks reminder form submission and checked consent reaches the draft mutation

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import Page from "@/views/AdminCatalogTools";
+import CatalogTools from "@/features/admin/screens/CatalogTools";
 
 export const metadata: Metadata = {
-  title: "Catalog tools",
-  description: "Sofa Co. catalog administration.",
-  alternates: { canonical: "/admin/catalog-tools" },
+  title: "Variants & media",
+  description: "Product variants and gallery images.",
 };
 
-export default Page;
+export default function Page() {
+  return <CatalogTools />;
+}

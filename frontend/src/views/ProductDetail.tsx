@@ -1,17 +1,10 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValue,
-  useReducedMotion,
-  useSpring,
-} from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowLeft,
   ArrowRight,
-  Check,
   Heart,
   MessageCircle,
   Ruler,
@@ -26,6 +19,7 @@ import { PriceLabel } from "@/components/StorefrontPrimitives";
 import { CarouselControls, Container, Eyebrow } from "@/features/storefront/primitives";
 import { catalogQueryOptions } from "@/lib/storefrontUi";
 import { trpc } from "@/lib/trpc";
+import { useSiteMotion } from "@/lib/useSiteMotion";
 import { useCart } from "@/contexts/CartContext";
 import { ProductConfigurator } from "@/features/storefront/ProductConfigurator";
 import { configurationSummary, useConfigurator } from "@/features/storefront/useConfigurator";
@@ -64,8 +58,15 @@ const details = [
   },
 ];
 
-const MAX_TILT = 8;
-const tiltSpring = { stiffness: 150, damping: 18, mass: 0.6 };
+/**
+ * How far the gallery magnifies on hover.
+ *
+ * These are photographs of the weave and the stitching, and the whole reason a
+ * shopper studies them is to judge the make. At frame size that detail is not
+ * readable, so hovering magnifies around the cursor rather than tilting the
+ * frame — the pointer stays on the part being inspected.
+ */
+const ZOOM_SCALE = 2.1;
 
 /** Shared scroll-reveal for everything below the fold. */
 const reveal = {
@@ -169,11 +170,8 @@ export default function ProductDetail() {
   const [quantity, setQuantity] = useState(1);
   const [saved, setSaved] = useState(false);
 
-  const prefersReducedMotion = useReducedMotion();
-  const tiltX = useMotionValue(0);
-  const tiltY = useMotionValue(0);
-  const rotateX = useSpring(tiltX, tiltSpring);
-  const rotateY = useSpring(tiltY, tiltSpring);
+  const { animate } = useSiteMotion();
+  const [zoom, setZoom] = useState<{ x: number; y: number } | null>(null);
 
   const gallery = useMemo(
     () => parseGallery(product?.gallery, product?.imageUrl),
@@ -211,19 +209,15 @@ export default function ProductDetail() {
     });
   }, [product, series?.name, track]);
 
-  function handleTilt(event: React.PointerEvent<HTMLDivElement>) {
-    if (prefersReducedMotion) return;
+  /** Tracks the cursor as a percentage of the frame, used as the zoom origin. */
+  function handleZoom(event: React.PointerEvent<HTMLDivElement>) {
+    // Touch would zoom on tap and then have no way to pan or dismiss it.
+    if (event.pointerType === "touch") return;
     const bounds = event.currentTarget.getBoundingClientRect();
-    const offsetX = (event.clientX - bounds.left) / bounds.width - 0.5;
-    const offsetY = (event.clientY - bounds.top) / bounds.height - 0.5;
-    // Cursor above centre should lift the top edge away, hence the negated Y.
-    tiltX.set(-offsetY * MAX_TILT * 2);
-    tiltY.set(offsetX * MAX_TILT * 2);
-  }
-
-  function resetTilt() {
-    tiltX.set(0);
-    tiltY.set(0);
+    setZoom({
+      x: ((event.clientX - bounds.left) / bounds.width) * 100,
+      y: ((event.clientY - bounds.top) / bounds.height) * 100,
+    });
   }
 
   if (isLoading && !product) {
@@ -257,16 +251,13 @@ export default function ProductDetail() {
 
           <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-16">
             <section className="lg:col-span-7" aria-label="Product gallery">
-              <div style={{ perspective: 1200 }}>
-                <motion.div
-                  onPointerMove={handleTilt}
-                  onPointerLeave={resetTilt}
-                  style={{
-                    rotateX: prefersReducedMotion ? 0 : rotateX,
-                    rotateY: prefersReducedMotion ? 0 : rotateY,
-                    transformStyle: "preserve-3d",
-                  }}
-                  className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-sand-200 bg-sand-200"
+              <div>
+                <div
+                  onPointerMove={handleZoom}
+                  onPointerLeave={() => setZoom(null)}
+                  // The catalogue photography is 4:3; a taller frame cropped the
+                  // ends off every sectional, which is the shape being sold.
+                  className="group relative aspect-[4/3] cursor-zoom-in overflow-hidden rounded-2xl border border-sand-200 bg-sand-200"
                 >
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -282,15 +273,30 @@ export default function ProductDetail() {
                         alt={`${product.name} — view ${activeIndex + 1} of ${gallery.length}`}
                         priority={activeIndex === 0}
                         sizes="(min-width: 1024px) 58vw, 100vw"
-                        className="h-full w-full object-cover"
+                        className={cn(
+                          "h-full w-full object-cover",
+                          // Reduced motion keeps the zoom and loses the glide.
+                          animate && "transition-transform duration-200 ease-out"
+                        )}
+                        style={{
+                          transform: zoom ? `scale(${ZOOM_SCALE})` : "scale(1)",
+                          transformOrigin: zoom ? `${zoom.x}% ${zoom.y}%` : "center",
+                        }}
                       />
                     </motion.div>
                   </AnimatePresence>
 
-                  <span className="absolute right-4 top-4 rounded-full bg-sand-50/90 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-500">
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute bottom-4 left-4 rounded-full bg-ink-900/70 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-sand-50 opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100"
+                  >
+                    Hover to inspect the weave
+                  </span>
+
+                  <span className="pointer-events-none absolute right-4 top-4 rounded-full bg-sand-50/90 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-500">
                     {activeIndex + 1} / {gallery.length}
                   </span>
-                </motion.div>
+                </div>
               </div>
 
               <div className="mt-4 flex items-center gap-4">
@@ -303,7 +309,7 @@ export default function ProductDetail() {
                       aria-pressed={activeIndex === index}
                       aria-label={`Show ${product.name} view ${index + 1}`}
                       className={cn(
-                        "h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-sand-200 bg-sand-200 transition-all sm:h-24 sm:w-24",
+                        "aspect-[4/3] h-16 shrink-0 overflow-hidden rounded-xl border border-sand-200 bg-sand-200 transition-all sm:h-20",
                         activeIndex === index
                           ? "ring-2 ring-clay-500 ring-offset-2 ring-offset-sand-100"
                           : "opacity-70 hover:opacity-100"

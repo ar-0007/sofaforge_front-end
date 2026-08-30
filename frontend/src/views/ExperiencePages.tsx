@@ -10,6 +10,8 @@ import { OptimizedImage } from "@/components/OptimizedImage";
 import { catalogQueryOptions } from "@/lib/storefrontUi";
 import { trpc } from "@/lib/trpc";
 import { useCart } from "@/contexts/CartContext";
+import { productItem, toMajorUnits } from "@/lib/analytics/items";
+import { useTracking } from "@/lib/analytics/tracker";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
@@ -26,6 +28,7 @@ const swatches = [
 export function Wishlist() {
   const { data: products = [] } = trpc.commerce.getProducts.useQuery(undefined, catalogQueryOptions);
   const { addToCart } = useCart();
+  const { track } = useTracking();
   const [saved, setSaved] = useState<number[]>([]);
 
   useEffect(() => {
@@ -46,7 +49,7 @@ export function Wishlist() {
 
   const items = products.filter((product) => saved.includes(product.id));
 
-  return <StoreLayout><main className="mx-auto max-w-[1440px] px-6 py-20 sm:px-10 lg:px-16 lg:py-28"><motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }}><p className="eyebrow">Saved for later</p><h1 className="font-display mt-5 text-7xl leading-[0.85] tracking-[-0.05em] sm:text-8xl">Pieces to<br />come back to.</h1><p className="mt-7 max-w-md text-sm leading-7 text-[#766b5d]">Keep the shapes and textures that caught your eye close by. Your list stays on this device.</p></motion.div><div className="mt-16 border-t border-[#decfbd] pt-8">{items.length === 0 ? <div className="border border-dashed border-[#cdbda9] px-6 py-24 text-center"><Heart size={26} strokeWidth={1.3} className="mx-auto text-[#c58d5d]" /><p className="font-display mt-6 text-4xl">Nothing saved yet.</p><p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-[#766b5d]">Browse the collection and tap the heart on a piece that feels like you.</p><Link href="/shop" className="editorial-link mt-8">Explore the collection <ArrowRight size={15} /></Link></div> : <div className="grid gap-x-5 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">{items.map((product, index) => <motion.article key={product.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.08 }} className="group"><div className="relative aspect-[0.9] overflow-hidden bg-[#e9dfd1]"><OptimizedImage src={product.imageUrl || "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=86"} alt={product.name} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw" className="image-hover h-full w-full object-cover" /><button type="button" onClick={() => toggleSaved(product.id)} className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-[#f8f4ec]/90 text-[#9b6e4b]"><Heart size={16} fill="currentColor" /></button></div><div className="mt-5 flex items-start justify-between"><div><h2 className="font-display text-2xl">{product.name}</h2><p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-[#766b5d]">Starting from ${(product.startingPrice / 100).toLocaleString()}</p></div><button type="button" onClick={() => addToCart({ id: `product-${product.id}`, name: product.name, price: product.startingPrice, quantity: 1, image: product.imageUrl || undefined, variantDetails: "Standard configuration" })} className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#9b6e4b]">Add to bag</button></div></motion.article>)}</div>}</div></main></StoreLayout>;
+  return <StoreLayout><main className="mx-auto max-w-[1440px] px-6 py-20 sm:px-10 lg:px-16 lg:py-28"><motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }}><p className="eyebrow">Saved for later</p><h1 className="font-display mt-5 text-7xl leading-[0.85] tracking-[-0.05em] sm:text-8xl">Pieces to<br />come back to.</h1><p className="mt-7 max-w-md text-sm leading-7 text-[#766b5d]">Keep the shapes and textures that caught your eye close by. Your list stays on this device.</p></motion.div><div className="mt-16 border-t border-[#decfbd] pt-8">{items.length === 0 ? <div className="border border-dashed border-[#cdbda9] px-6 py-24 text-center"><Heart size={26} strokeWidth={1.3} className="mx-auto text-[#c58d5d]" /><p className="font-display mt-6 text-4xl">Nothing saved yet.</p><p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-[#766b5d]">Browse the collection and tap the heart on a piece that feels like you.</p><Link href="/shop" className="editorial-link mt-8">Explore the collection <ArrowRight size={15} /></Link></div> : <div className="grid gap-x-5 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">{items.map((product, index) => <motion.article key={product.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.08 }} className="group"><div className="relative aspect-[0.9] overflow-hidden bg-[#e9dfd1]"><OptimizedImage src={product.imageUrl || "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=86"} alt={product.name} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw" className="image-hover h-full w-full object-cover" /><button type="button" onClick={() => toggleSaved(product.id)} className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-[#f8f4ec]/90 text-[#9b6e4b]"><Heart size={16} fill="currentColor" /></button></div><div className="mt-5 flex items-start justify-between"><div><h2 className="font-display text-2xl">{product.name}</h2><p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-[#766b5d]">Starting from ${(product.startingPrice / 100).toLocaleString()}</p></div><button type="button" onClick={() => { addToCart({ id: `product-${product.id}`, name: product.name, price: product.startingPrice, quantity: 1, image: product.imageUrl || undefined, variantDetails: "Standard configuration" }); track("add_to_cart", { value: toMajorUnits(product.startingPrice), items: [productItem(product)], contentName: product.name }); }} className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#9b6e4b]">Add to bag</button></div></motion.article>)}</div>}</div></main></StoreLayout>;
 }
 
 export function SwatchRequest() {
@@ -55,6 +58,7 @@ export function SwatchRequest() {
   const [message, setMessage] = useState("");
   const [selected, setSelected] = useState<string[]>([]);
   const submitInquiryMutation = trpc.commerce.submitInquiry.useMutation();
+  const { track } = useTracking();
 
   const toggleSwatch = (swatchName: string) => setSelected((current) => current.includes(swatchName) ? current.filter((item) => item !== swatchName) : [...current, swatchName]);
   const submit = async (event: React.FormEvent) => {
@@ -62,6 +66,7 @@ export function SwatchRequest() {
     try {
       await submitInquiryMutation.mutateAsync({ firstName: name, lastName: "", email, category: "Product Inquiry", message: `${message}\nRequested swatches: ${selected.join(", ") || "No specific swatches"}` });
       toast.success("Request received", { description: "We will be in touch about your sample set." });
+      track("lead", { contentName: "Swatch request", contentCategory: "Product Inquiry" });
       setName(""); setEmail(""); setMessage(""); setSelected([]);
     } catch { toast.error("Something went wrong", { description: "Please check your details and try again." }); }
   };

@@ -1,7 +1,47 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+/* The admin has its own design system, scoped entirely under `.sfa`. It shares
+   nothing with the storefront palette below, so either can change alone. */
+@import "./styles/admin.css";
 
 @custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+   Sofa Co. brand palette
+   Warm cream ground, terracotta accent, deep ink text. Every storefront
+   surface pulls from these — no raw hex in components.
+   --------------------------------------------------------------------------- */
+@theme {
+  /* Cream / sand — page and card grounds */
+  --color-sand-50: #FDFAF5;
+  --color-sand-100: #F7F1E7;
+  --color-sand-200: #F0E8DB;
+  --color-sand-300: #E4D9C7;
+  --color-sand-400: #D2C3AB;
+  --color-sand-500: #B9A688;
+
+  /* Terracotta — the single accent. Buttons, active states, marks. */
+  --color-clay-300: #F0A97F;
+  --color-clay-400: #E8834F;
+  --color-clay-500: #D9622B;
+  --color-clay-600: #BC5122;
+  --color-clay-700: #94401B;
+
+  /* Ink — text and dark surfaces */
+  --color-ink-900: #1F1B17;
+  --color-ink-800: #2B2622;
+  --color-ink-700: #453C33;
+  --color-ink-500: #7A6E62;
+  --color-ink-400: #9A8D80;
+
+  /* Olive — secondary, used sparingly for depth behind imagery */
+  --color-olive-500: #7C7F5F;
+  --color-olive-600: #63664B;
+
+  --font-display: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-sans), "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -39,7 +79,7 @@
 
 :root {
   --radius: 0.2rem;
-  --background: oklch(0.972 0.009 79);
+  --background: oklch(0.955 0.014 82);
   --foreground: oklch(0.18 0.02 60);
   --card: oklch(0.986 0.006 80);
   --card-foreground: oklch(0.18 0.02 60);
@@ -51,13 +91,13 @@
   --secondary-foreground: oklch(0.23 0.02 60);
   --muted: oklch(0.94 0.014 76);
   --muted-foreground: oklch(0.48 0.025 62);
-  --accent: oklch(0.67 0.078 63);
+  --accent: oklch(0.62 0.155 45);   /* terracotta */
   --accent-foreground: oklch(0.18 0.02 60);
   --destructive: oklch(0.57 0.2 26);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.85 0.025 75);
-  --input: oklch(0.85 0.025 75);
-  --ring: oklch(0.64 0.09 62);
+  --border: oklch(0.875 0.022 78);
+  --input: oklch(0.875 0.022 78);
+  --ring: oklch(0.62 0.155 45);
   --sidebar: oklch(0.95 0.016 77);
   --sidebar-foreground: oklch(0.18 0.02 60);
   --sidebar-primary: oklch(0.2 0.018 60);

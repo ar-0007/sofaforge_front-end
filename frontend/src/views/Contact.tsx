@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import StoreLayout from "@/components/StoreLayout";
+import { useTracking } from "@/lib/analytics/tracker";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { CONTACT } from "@/features/storefront/content";
 
 export default function Contact() {
   const [firstName, setFirstName] = useState("");
@@ -17,6 +19,7 @@ export default function Contact() {
   const [category, setCategory] = useState<"Residential" | "Commercial" | "Product Inquiry">("Residential");
   const [message, setMessage] = useState("");
 
+  const { track } = useTracking();
   const submitInquiryMutation = trpc.commerce.submitInquiry.useMutation();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,6 +37,9 @@ export default function Contact() {
         message,
       });
       toast.success("Inquiry submitted successfully!", { description: "Our design consultants will respond within 24 hours." });
+      // Fired only after the inquiry is actually stored — a failed submit is
+      // not a lead, and counting it would inflate every campaign's cost per lead.
+      track("lead", { contentName: "Contact enquiry", contentCategory: category });
       setFirstName("");
       setLastName("");
       setEmail("");
@@ -64,28 +70,44 @@ export default function Contact() {
               <MapPin size={20} className="text-[#8C7A6B] mt-1 shrink-0" />
               <div>
                 <p className="font-medium">Showroom Location</p>
-                <p className="text-muted-foreground">1248 Queen Street West, Toronto, Ontario M6J 1R5 Canada</p>
+                <address className="not-italic text-muted-foreground">
+                  {CONTACT.address.oneLine}
+                  <br />
+                  {CONTACT.address.country}
+                </address>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <Phone size={20} className="text-[#8C7A6B] mt-1 shrink-0" />
               <div>
                 <p className="font-medium">Direct Line</p>
-                <p className="text-muted-foreground">+1 (800) 555-0199</p>
+                {/* A phone number on a page is a tap target on a phone. */}
+                <a href={CONTACT.phone.href} className="text-muted-foreground hover:text-[#8C7A6B]">
+                  {CONTACT.phone.label}
+                </a>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <Mail size={20} className="text-[#8C7A6B] mt-1 shrink-0" />
               <div>
                 <p className="font-medium">Email Inquiry</p>
-                <p className="text-muted-foreground">studio@thesofaco.ca</p>
+                <a href={CONTACT.email.href} className="text-muted-foreground hover:text-[#8C7A6B]">
+                  {CONTACT.email.label}
+                </a>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <Clock size={20} className="text-[#8C7A6B] mt-1 shrink-0" />
               <div>
                 <p className="font-medium">Showroom Hours</p>
-                <p className="text-muted-foreground">Monday – Friday: 10am – 6pm<br />Saturday: 11am – 5pm<br />Sunday: By Appointment Only</p>
+                <dl className="text-muted-foreground">
+                  {CONTACT.hours.map((slot) => (
+                    <div key={slot.days} className="flex gap-2">
+                      <dt>{slot.days}:</dt>
+                      <dd>{slot.time}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
             </div>
           </div>

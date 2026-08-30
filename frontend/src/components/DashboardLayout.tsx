@@ -21,7 +21,6 @@ import {
   SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { startLogin } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
 import { LayoutDashboard, LogOut, PanelLeft, ShieldCheck, Users } from "lucide-react";
 import { CSSProperties, useEffect, useRef, useState } from "react";
@@ -80,11 +79,17 @@ export default function DashboardLayout({
               Sign in to continue
             </h1>
             <p className="text-sm text-muted-foreground text-center max-w-sm">
-              Access to this dashboard requires authentication. Continue to launch the login flow.
+              Access to this dashboard requires authentication.
             </p>
           </div>
           <Button
-            onClick={() => startLogin()}
+            onClick={() => {
+              // /login is the single entry point: it offers the local
+              // email+password form where that is enabled, and falls back to
+              // the Manus OAuth flow everywhere else.
+              const next = encodeURIComponent(window.location.pathname);
+              window.location.href = `/login?next=${next}`;
+            }}
             size="lg"
             className="w-full shadow-lg hover:shadow-xl transition-all"
           >

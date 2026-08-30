@@ -3,10 +3,100 @@ import { notifyOwner } from "../../core/notification";
 import { z } from "zod";
 import { getDb } from "../../db";
 import { series, products, contentPlacements, carts, productReviews, customConfigurations, orders, inquiries, newsletterSubscribers } from "../../db/schema";
-import { and, eq, desc } from "drizzle-orm";
+import { and, eq, desc, sql } from "drizzle-orm";
 import { fallbackProductsForSeries, fallbackSeries, findFallbackProduct } from "./catalog.fallback";
+import { publicProductOptionsProcedure, publicStudioStepsProcedure } from "../catalog/productOptions.router";
 
 export const commerceRouter = router({
+  /**
+   * The configurator questions for a product page: depth, material, cushion
+   * style and whatever else the owner defined in the admin, each choice
+   * carrying what it adds to the price.
+   */
+  getProductOptions: publicProductOptionsProcedure,
+
+  /** The Custom Studio's steps, in the order the owner arranged them. */
+  getStudioSteps: publicStudioStepsProcedure,
+
+  /**
+   * The shop's browse tree: top-level categories, each with the collections
+   * inside it and how many products sit under each.
+   *
+   * The storefront renders categories first, then collections, then products —
+   * so this is the one query that drives the whole browse path.
+   */
+  getCategoryTree: publicProcedure.query(async () => {
+    const db = await getDb();
+    if (!db) {
+      // Without a database the fallback catalogue is flat; present it as one
+      // level rather than inventing a hierarchy that does not exist.
+      return fallbackSeries.map(entry => ({
+        id: entry.id,
+        name: entry.name,
+        slug: entry.slug,
+        description: entry.description ?? null,
+        imageUrl: entry.imageUrl ?? null,
+        productCount: 0,
+        children: [] as Array<{
+          id: number;
+          name: string;
+          slug: string;
+          description: string | null;
+          imageUrl: string | null;
+          productCount: number;
+        }>,
+      }));
+    }
+
+    try {
+      const rows = await db
+        .select()
+        .from(series)
+        .where(eq(series.isVisible, "true"))
+        .orderBy(series.sortOrder, series.name);
+
+      const counts = await db
+        .select({ seriesId: products.seriesId, total: sql<number>`count(*)` })
+        .from(products)
+        .where(eq(products.isVisible, "true"))
+        .groupBy(products.seriesId);
+      const countBySeries = new Map(counts.map(row => [row.seriesId, Number(row.total)]));
+
+      const shape = (row: (typeof rows)[number]) => ({
+        id: row.id,
+        name: row.name,
+        slug: row.slug,
+        description: row.description,
+        imageUrl: row.imageUrl,
+        productCount: countBySeries.get(row.id) ?? 0,
+      });
+
+      const childrenByParent = new Map<number, ReturnType<typeof shape>[]>();
+      for (const row of rows) {
+        if (row.parentId === null) continue;
+        const list = childrenByParent.get(row.parentId) ?? [];
+        list.push(shape(row));
+        childrenByParent.set(row.parentId, list);
+      }
+
+      return rows
+        .filter(row => row.parentId === null)
+        .map(row => {
+          const children = childrenByParent.get(row.id) ?? [];
+          return {
+            ...shape(row),
+            // A category's count includes everything beneath it, which is what
+            // a shopper reads "Sectionals (14)" to mean.
+            productCount: shape(row).productCount + children.reduce((sum, child) => sum + child.productCount, 0),
+            children,
+          };
+        });
+    } catch (error) {
+      console.warn("[Commerce] Category tree unavailable.", error);
+      return [];
+    }
+  }),
+
   getSeries: publicProcedure.query(async () => {
     const db = await getDb();
     if (!db) return fallbackSeries;
@@ -150,7 +240,7 @@ export const commerceRouter = router({
       const db = await getDb();
       if (!db) throw new Error("Database not available");
       const userId = ctx.user?.id || null;
-      await db.insert(orders).values({
+      const result = await db.insert(orders).values({
         userId,
         customerName: input.customerName,
         customerEmail: input.customerEmail,
@@ -159,7 +249,10 @@ export const commerceRouter = router({
         totalAmount: input.totalAmount,
         status: "pending",
       });
-      return { success: true };
+      // The id goes back so the storefront can name the order on its `purchase`
+      // event. Meta and TikTok deduplicate a browser pixel against its server
+      // copy by order id, so a purchase without one can be counted twice.
+      return { success: true, orderId: Number(result[0].insertId) };
     }),
 
   submitInquiry: publicProcedure

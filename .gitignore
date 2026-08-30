@@ -112,3 +112,7 @@ temp/
 # Manus version file (auto-generated, not part of source)
 frontend/public/__manus__/version.json
 .project-config.json
+
+# Uploaded shop photography (user content, not source)
+backend/uploads/
+uploads/

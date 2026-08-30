@@ -25,8 +25,18 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
+/**
+ * The browse tree. A row with no `parentId` is a top-level category
+ * ("Sectionals"); a row with one is a collection inside it ("Bobby",
+ * "Stanton"). Products hang off the leaves.
+ *
+ * One self-referencing table rather than two, so the shop can grow a third
+ * level later without another migration.
+ */
 export const series = mysqlTable("series", {
   id: int("id").autoincrement().primaryKey(),
+  /** Null makes this a top-level category. */
+  parentId: int("parentId"),
   name: varchar("name", { length: 100 }).notNull().unique(),
   slug: varchar("slug", { length: 100 }).notNull().unique(),
   description: text("description"),
@@ -60,6 +70,58 @@ export const productVariants = mysqlTable("productVariants", {
   name: varchar("name", { length: 255 }).notNull(),
   price: int("price").notNull(),
   sku: varchar("sku", { length: 100 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+/**
+ * A configurable choice on a product — "Select Depth", "Back Cushion Style",
+ * "Configuration: LHF Arm Chaise & RHF Loveseat".
+ *
+ * Groups belong to one product, or are global (`productId` null) when the same
+ * question is asked across the catalogue and would otherwise be retyped for
+ * every piece.
+ */
+export const productOptionGroups = mysqlTable("productOptionGroups", {
+  id: int("id").autoincrement().primaryKey(),
+  /** Null means the group is reusable across every product. */
+  productId: int("productId"),
+  label: varchar("label", { length: 160 }).notNull(),
+  /** Stable name used in cart lines and analytics, e.g. "depth". */
+  slug: varchar("slug", { length: 80 }).notNull(),
+  helpText: text("helpText"),
+  /** How the storefront renders the choices. */
+  displayType: mysqlEnum("displayType", ["radio", "dropdown", "swatch", "image", "checkbox", "text"]).default("radio").notNull(),
+  isRequired: mysqlEnum("isRequired", ["true", "false"]).default("true").notNull(),
+  /** Checkbox groups can take several answers; everything else takes one. */
+  allowMultiple: mysqlEnum("allowMultiple", ["true", "false"]).default("false").notNull(),
+  isVisible: mysqlEnum("isVisible", ["true", "false"]).default("true").notNull(),
+  sortOrder: int("sortOrder").default(0).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+/** One answer inside an option group, with what it adds to the price. */
+export const productOptionChoices = mysqlTable("productOptionChoices", {
+  id: int("id").autoincrement().primaryKey(),
+  groupId: int("groupId").notNull(),
+  /**
+   * Set when this choice only applies under another one — a fabric colour
+   * belongs to a material, so picking "Velvet" must narrow the colour grid to
+   * the velvet range instead of showing all 51 at once.
+   */
+  parentChoiceId: int("parentChoiceId"),
+  label: varchar("label", { length: 200 }).notNull(),
+  value: varchar("value", { length: 120 }).notNull(),
+  /** Minor units added to the product's price. Negative is a discount. */
+  priceDelta: int("priceDelta").default(0).notNull(),
+  /** Image swatch (a cushion photo) or colour swatch (a fabric hex). */
+  imageUrl: text("imageUrl"),
+  swatchColor: varchar("swatchColor", { length: 20 }),
+  sku: varchar("sku", { length: 100 }),
+  description: varchar("description", { length: 400 }),
+  isDefault: mysqlEnum("isDefault", ["true", "false"]).default("false").notNull(),
+  isVisible: mysqlEnum("isVisible", ["true", "false"]).default("true").notNull(),
+  sortOrder: int("sortOrder").default(0).notNull(),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
 
@@ -159,6 +221,46 @@ export const customerReminders = mysqlTable("customerReminders", {
   sentAt: timestamp("sentAt"),
 });
 
+/**
+ * Key/value store behind the admin Settings screens. One row per setting so a
+ * new pixel or shipping rule never needs a migration — `shared/settings/registry.ts`
+ * declares the field, this table holds whatever the owner typed.
+ *
+ * `settingGroup`/`settingKey` avoid the reserved words `group` and `key`.
+ */
+export const storeSettings = mysqlTable("storeSettings", {
+  id: int("id").autoincrement().primaryKey(),
+  settingGroup: varchar("settingGroup", { length: 64 }).notNull(),
+  settingKey: varchar("settingKey", { length: 120 }).notNull().unique(),
+  value: text("value"),
+  /** Secrets (CAPI tokens) are write-only: reads return a mask, never the value. */
+  isSecret: mysqlEnum("isSecret", ["true", "false"]).default("false").notNull(),
+  updatedBy: int("updatedBy"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+/**
+ * First-party record of every tracked event. Ad platforms only report what
+ * their own pixel saw; this is the copy the owner controls, and it is what the
+ * dashboard charts read from.
+ */
+export const analyticsEvents = mysqlTable("analyticsEvents", {
+  id: int("id").autoincrement().primaryKey(),
+  eventName: varchar("eventName", { length: 64 }).notNull(),
+  /** Shared with the browser pixel so Meta/TikTok can de-duplicate the pair. */
+  eventId: varchar("eventId", { length: 64 }).notNull(),
+  userId: int("userId"),
+  sessionKey: varchar("sessionKey", { length: 160 }),
+  path: varchar("path", { length: 500 }),
+  referrer: varchar("referrer", { length: 500 }),
+  /** Minor units, same currency as the order. */
+  value: int("value"),
+  currency: varchar("currency", { length: 8 }),
+  payload: text("payload"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
 export const adminAuditLogs = mysqlTable("adminAuditLogs", {
   id: int("id").autoincrement().primaryKey(),
   adminUserId: int("adminUserId").notNull(),
@@ -181,3 +283,7 @@ export type ProductReview = typeof productReviews.$inferSelect;
 export type Cart = typeof carts.$inferSelect;
 export type CustomerReminder = typeof customerReminders.$inferSelect;
 export type AdminAuditLog = typeof adminAuditLogs.$inferSelect;
+export type StoreSetting = typeof storeSettings.$inferSelect;
+export type AnalyticsEvent = typeof analyticsEvents.$inferSelect;
+export type ProductOptionGroup = typeof productOptionGroups.$inferSelect;
+export type ProductOptionChoice = typeof productOptionChoices.$inferSelect;

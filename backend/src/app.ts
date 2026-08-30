@@ -2,9 +2,11 @@ import express from "express";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { registerOAuthRoutes } from "./core/oauth";
 import { registerStorageProxy } from "./core/storageProxy";
+import { registerUploadRoutes } from "./core/media";
 import { createContext } from "./core/context";
 import { serveStatic } from "./core/static";
 import { appRouter } from "./modules/app.router";
+import { registerDevAuthRoutes } from "./modules/auth/devAuth";
 
 /**
  * Builds the Express app. No frontend knowledge lives here — the API only
@@ -39,8 +41,11 @@ export function createApp() {
 
   app.get("/api/health", (_req, res) => res.json({ ok: true }));
 
+  // Uploaded product photography, served straight from disk.
+  registerUploadRoutes(app);
   registerStorageProxy(app);
   registerOAuthRoutes(app);
+  registerDevAuthRoutes(app);
 
   // All API routes start with /api/ so a gateway can route them.
   app.use(

@@ -1,0 +1,1891 @@
+/* ============================================================================
+   Sofa Co. Admin — design system
+   ----------------------------------------------------------------------------
+   A WordPress-shaped admin — dark rail on the left, thin admin bar on top,
+   working surface below — wearing the storefront's own skin: cream grounds,
+   terracotta accent, ink rail, Manrope and Cormorant.
+
+   Everything is scoped under `.sfa`, so the admin can never leak styles into a
+   shop page. No component hard-codes a colour; they all read these tokens,
+   which is what keeps the back office and the shop window in step.
+   ========================================================================== */
+
+.sfa {
+  /* -- neutrals: the storefront's cream and ink, nothing borrowed ---------- */
+  --sfa-bg: #F4EDE1;
+  --sfa-surface: #FDFAF5;
+  --sfa-surface-2: #F7F1E7;
+  --sfa-surface-3: #EFE6D8;
+  --sfa-border: #E4D9C7;
+  --sfa-border-strong: #D2C3AB;
+  --sfa-text: #1F1B17;
+  --sfa-text-soft: #453C33;
+  --sfa-text-muted: #7A6E62;
+
+  /* -- rail: the same deep ink the storefront footer sits on --------------- */
+  --sfa-rail: #1B1713;
+  --sfa-rail-2: #2B2622;
+  --sfa-rail-hover: #3A322A;
+  --sfa-rail-text: #C6B9A8;
+  --sfa-rail-text-dim: #9A8D80;
+  --sfa-rail-active: #FDFAF5;
+  --sfa-rail-border: #3A322A;
+
+  /* -- accent: terracotta, the storefront's single accent ------------------ */
+  --sfa-accent: #C25620;
+  --sfa-accent-hover: #A44718;
+  --sfa-accent-soft: #F8E7DA;
+  --sfa-accent-ring: rgba(194, 86, 32, 0.3);
+
+  /* Semantic colours kept warm so nothing reads as a foreign UI kit. */
+  --sfa-success: #4C7346;
+  --sfa-success-soft: #EDF3E9;
+  --sfa-warn: #9A6A16;
+  --sfa-warn-soft: #FAF0DC;
+  --sfa-danger: #A93A2B;
+  --sfa-danger-soft: #FAE9E5;
+  --sfa-info: #6B6B4B;
+  --sfa-info-soft: #F1F1E5;
+
+  /* Chart series: terracotta, olive, clay, ink, sand — one family. */
+  --sfa-chart-1: #C25620;
+  --sfa-chart-2: #7C7F5F;
+  --sfa-chart-3: #E8834F;
+  --sfa-chart-4: #453C33;
+  --sfa-chart-5: #B9A688;
+  --sfa-chart-6: #94401B;
+
+  /* -- shape: square-ish like the storefront, softened just enough --------- */
+  --sfa-radius: 8px;
+  --sfa-radius-sm: 5px;
+  --sfa-shadow: 0 1px 2px rgba(71, 47, 29, 0.05), 0 2px 10px -6px rgba(71, 47, 29, 0.18);
+  --sfa-shadow-lg: 0 18px 60px -30px rgba(71, 47, 29, 0.5);
+  --sfa-rail-width: 250px;
+  --sfa-rail-width-collapsed: 64px;
+  --sfa-bar-height: 58px;
+
+  /* The storefront's own typefaces. Manrope for the interface, Cormorant for
+     page titles — the admin should feel like the same house, not a tool
+     someone bolted on. */
+  --sfa-font: var(--font-sans), "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sfa-font-display: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  --sfa-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  font-family: var(--sfa-font);
+  color: var(--sfa-text);
+  background: var(--sfa-bg);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01" 1, "cv11" 1;
+}
+
+.dark .sfa,
+.sfa[data-theme="dark"] {
+  --sfa-bg: #17140F;
+  --sfa-surface: #211D18;
+  --sfa-surface-2: #282320;
+  --sfa-surface-3: #322B25;
+  --sfa-border: #3A322A;
+  --sfa-border-strong: #4C4238;
+  --sfa-text: #F2EADC;
+  --sfa-text-soft: #C6B9A8;
+  --sfa-text-muted: #9A8D80;
+
+  --sfa-rail: #100E0B;
+  --sfa-rail-2: #1B1713;
+  --sfa-rail-hover: #2E2822;
+  --sfa-rail-border: #2A241E;
+
+  --sfa-accent: #E8834F;
+  --sfa-accent-hover: #F0A97F;
+  --sfa-accent-soft: rgba(232, 131, 79, 0.16);
+  --sfa-accent-ring: rgba(232, 131, 79, 0.38);
+
+  --sfa-success: #9CC58F;
+  --sfa-success-soft: rgba(156, 197, 143, 0.14);
+  --sfa-warn: #E0B269;
+  --sfa-warn-soft: rgba(224, 178, 105, 0.14);
+  --sfa-danger: #E4877A;
+  --sfa-danger-soft: rgba(228, 135, 122, 0.14);
+  --sfa-info: #B7BA92;
+  --sfa-info-soft: rgba(183, 186, 146, 0.14);
+
+  --sfa-chart-1: #E8834F;
+  --sfa-chart-2: #A8AC85;
+  --sfa-chart-3: #F0A97F;
+  --sfa-chart-4: #C6B9A8;
+  --sfa-chart-5: #8F7F6A;
+  --sfa-chart-6: #D9622B;
+
+  --sfa-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --sfa-shadow-lg: 0 18px 50px -24px rgba(0, 0, 0, 0.8);
+}
+
+/* ---------------------------------------------------------------- shell -- */
+
+.sfa-shell {
+  min-height: 100vh;
+  background: var(--sfa-bg);
+}
+
+.sfa-rail {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: var(--sfa-rail-width);
+  background: linear-gradient(180deg, var(--sfa-rail-2) 0%, var(--sfa-rail) 100%);
+  border-inline-end: 1px solid var(--sfa-rail-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 60;
+  transition: width 160ms ease;
+}
+
+.sfa-shell[data-collapsed="true"] .sfa-rail {
+  width: var(--sfa-rail-width-collapsed);
+}
+
+.sfa-rail__brand {
+  height: var(--sfa-bar-height);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 16px;
+  border-block-end: 1px solid var(--sfa-rail-border);
+  flex-shrink: 0;
+}
+
+.sfa-rail__mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #E8834F, #94401B);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.sfa-rail__role {
+  /* Set here, not inline: an inline display beats the collapsed-rail rule that
+     has to hide it, which is how the wordmark ended up spilling across the
+     breadcrumb on a collapsed rail. */
+  display: block;
+}
+
+.sfa-rail__name {
+  color: var(--sfa-rail-active);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sfa-rail__role {
+  color: var(--sfa-rail-text-dim);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sfa-rail__scroll {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-block: 10px 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sfa-rail-hover) transparent;
+}
+
+.sfa-rail__scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.sfa-rail__scroll::-webkit-scrollbar-thumb {
+  background: var(--sfa-rail-hover);
+  border-radius: 999px;
+}
+
+.sfa-rail__group-label {
+  padding: 14px 18px 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sfa-rail-text-dim);
+}
+
+.sfa-shell[data-collapsed="true"] .sfa-rail__group-label {
+  padding-inline: 0;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 0.02em;
+}
+
+/* WordPress's signature: a flat full-bleed row, active state marked by a bar. */
+.sfa-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 9px 18px;
+  color: var(--sfa-rail-text);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: start;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.sfa-nav-item:hover {
+  background: var(--sfa-rail-hover);
+  color: var(--sfa-rail-active);
+}
+
+.sfa-nav-item[aria-current="page"],
+.sfa-nav-item[data-active="true"] {
+  background: var(--sfa-rail-hover);
+  color: var(--sfa-rail-active);
+}
+
+.sfa-nav-item[aria-current="page"]::before,
+.sfa-nav-item[data-active="true"]::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block: 4px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--sfa-accent);
+}
+
+.sfa-nav-item__icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.sfa-nav-item__label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sfa-nav-item__chevron {
+  width: 14px;
+  height: 14px;
+  opacity: 0.6;
+  transition: transform 140ms ease;
+}
+
+.sfa-nav-item[data-open="true"] .sfa-nav-item__chevron {
+  transform: rotate(90deg);
+}
+
+/* A count bubble, the way WP flags pending comments. */
+.sfa-nav-item__count {
+  min-width: 19px;
+  height: 19px;
+  padding-inline: 6px;
+  border-radius: 999px;
+  background: var(--sfa-accent);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.sfa-subnav {
+  background: rgba(0, 0, 0, 0.22);
+  padding-block: 3px;
+}
+
+.sfa-subnav__item {
+  display: block;
+  width: 100%;
+  padding: 6px 18px 6px 46px;
+  font-size: 13px;
+  color: var(--sfa-rail-text-dim);
+  background: none;
+  border: 0;
+  text-align: start;
+  cursor: pointer;
+  transition: color 120ms ease;
+}
+
+.sfa-subnav__item:hover {
+  color: var(--sfa-rail-active);
+}
+
+.sfa-subnav__item[aria-current="page"] {
+  color: var(--sfa-accent);
+  font-weight: 600;
+}
+
+.sfa-shell[data-collapsed="true"] .sfa-nav-item {
+  justify-content: center;
+  padding-inline: 0;
+}
+
+.sfa-shell[data-collapsed="true"] .sfa-nav-item__label,
+.sfa-shell[data-collapsed="true"] .sfa-nav-item__chevron,
+.sfa-shell[data-collapsed="true"] .sfa-rail__name,
+.sfa-shell[data-collapsed="true"] .sfa-rail__role,
+.sfa-shell[data-collapsed="true"] .sfa-subnav {
+  display: none;
+}
+
+.sfa-rail__foot {
+  border-block-start: 1px solid var(--sfa-rail-border);
+  padding: 10px;
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------ admin bar -- */
+
+.sfa-main {
+  margin-inline-start: var(--sfa-rail-width);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: margin 160ms ease;
+}
+
+.sfa-shell[data-collapsed="true"] .sfa-main {
+  margin-inline-start: var(--sfa-rail-width-collapsed);
+}
+
+.sfa-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--sfa-bar-height);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-inline: 16px;
+  background: color-mix(in srgb, var(--sfa-surface) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-block-end: 1px solid var(--sfa-border);
+}
+
+.sfa-bar__crumbs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--sfa-text-muted);
+  min-width: 0;
+}
+
+.sfa-bar__crumbs strong {
+  color: var(--sfa-text);
+  font-weight: 600;
+}
+
+.sfa-bar__spacer {
+  flex: 1;
+}
+
+/* Only exists while the rail is a drawer. */
+.sfa-bar__menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--sfa-radius-sm);
+  border: 1px solid var(--sfa-border-strong);
+  background: var(--sfa-surface);
+  color: var(--sfa-text-soft);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sfa-bar__menu:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sfa-accent-ring);
+}
+
+/* ---------------------------------------------------------------- pages -- */
+
+.sfa-content {
+  flex: 1;
+  padding: 24px 24px 64px;
+  max-width: 1480px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.sfa-page-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-block-end: 20px;
+}
+
+.sfa-page-head__text {
+  flex: 1;
+  min-width: 240px;
+}
+
+.sfa-h1 {
+  font-family: var(--sfa-font-display);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--sfa-text);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sfa-page-head__desc {
+  margin-block-start: 5px;
+  font-size: 13.5px;
+  color: var(--sfa-text-muted);
+  max-width: 68ch;
+}
+
+.sfa-page-head__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* WP's "All (12) | Pending (3)" filter strip. */
+.sfa-filters {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-block-end: 14px;
+  font-size: 13px;
+}
+
+.sfa-filters button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--sfa-accent);
+  padding: 2px 0;
+  font-size: 13px;
+}
+
+.sfa-filters button[aria-pressed="true"] {
+  color: var(--sfa-text);
+  font-weight: 650;
+}
+
+.sfa-filters span[aria-hidden="true"] {
+  color: var(--sfa-border-strong);
+  padding-inline: 9px;
+}
+
+.sfa-filters em {
+  color: var(--sfa-text-muted);
+  font-style: normal;
+}
+
+/* ---------------------------------------------------------------- cards -- */
+
+.sfa-card {
+  background: var(--sfa-surface);
+  border: 1px solid var(--sfa-border);
+  border-radius: var(--sfa-radius);
+  box-shadow: var(--sfa-shadow);
+}
+
+.sfa-card__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border-block-end: 1px solid var(--sfa-border);
+}
+
+.sfa-card__title {
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  flex: 1;
+  min-width: 0;
+}
+
+.sfa-card__desc {
+  font-size: 12.5px;
+  color: var(--sfa-text-muted);
+  font-weight: 400;
+  margin-block-start: 2px;
+}
+
+.sfa-card__body {
+  padding: 16px;
+}
+
+.sfa-card__body--flush {
+  padding: 0;
+}
+
+.sfa-card__foot {
+  padding: 12px 16px;
+  border-block-start: 1px solid var(--sfa-border);
+  background: var(--sfa-surface-2);
+  border-radius: 0 0 var(--sfa-radius) var(--sfa-radius);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sfa-grid {
+  display: grid;
+  gap: 16px;
+}
+
+/* Wide-plus-narrow pairing used on the dashboard; one column once it stops
+   fitting, so the chart never gets squeezed into a strip. */
+@media (max-width: 1100px) {
+  .sfa-dash-split {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* --------------------------------------------------------------- stats --- */
+
+.sfa-stat {
+  background: var(--sfa-surface);
+  border: 1px solid var(--sfa-border);
+  border-radius: var(--sfa-radius);
+  padding: 15px 16px;
+  box-shadow: var(--sfa-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sfa-stat__top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sfa-stat__icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: var(--sfa-accent-soft);
+  color: var(--sfa-accent);
+  flex-shrink: 0;
+}
+
+.sfa-stat__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sfa-text-muted);
+  letter-spacing: 0.01em;
+}
+
+.sfa-stat__value {
+  font-family: var(--sfa-font-display);
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.sfa-stat__foot {
+  font-size: 12px;
+  color: var(--sfa-text-muted);
+}
+
+/* --------------------------------------------------------------- table --- */
+
+.sfa-table-wrap {
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.sfa-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.sfa-table th {
+  text-align: start;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--sfa-text-soft);
+  background: var(--sfa-surface-2);
+  padding: 10px 14px;
+  border-block-end: 1px solid var(--sfa-border);
+  white-space: nowrap;
+}
+
+.sfa-table td {
+  padding: 11px 14px;
+  border-block-end: 1px solid var(--sfa-border);
+  vertical-align: middle;
+}
+
+.sfa-table tbody tr:last-child td {
+  border-block-end: 0;
+}
+
+.sfa-table tbody tr:hover {
+  background: var(--sfa-surface-2);
+}
+
+.sfa-table__primary {
+  font-weight: 600;
+  color: var(--sfa-text);
+}
+
+.sfa-table__num {
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  white-space: nowrap;
+}
+
+.sfa-table__muted {
+  color: var(--sfa-text-muted);
+}
+
+/* WP reveals row actions on hover; keyboard users get them on focus. */
+.sfa-row-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  justify-content: flex-end;
+}
+
+tr:hover .sfa-row-actions,
+tr:focus-within .sfa-row-actions {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .sfa-row-actions {
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------- forms --- */
+
+.sfa-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.sfa-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sfa-text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sfa-help {
+  font-size: 12.5px;
+  color: var(--sfa-text-muted);
+  line-height: 1.45;
+}
+
+.sfa-error {
+  font-size: 12.5px;
+  color: var(--sfa-danger);
+  font-weight: 500;
+}
+
+.sfa-input,
+.sfa-select,
+.sfa-textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--sfa-text);
+  background: var(--sfa-surface);
+  border: 1px solid var(--sfa-border-strong);
+  border-radius: var(--sfa-radius-sm);
+  padding: 8px 11px;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.sfa-input::placeholder,
+.sfa-textarea::placeholder {
+  color: var(--sfa-text-muted);
+  opacity: 0.75;
+}
+
+.sfa-input:focus,
+.sfa-select:focus,
+.sfa-textarea:focus {
+  outline: none;
+  border-color: var(--sfa-accent);
+  box-shadow: 0 0 0 3px var(--sfa-accent-ring);
+}
+
+.sfa-input[aria-invalid="true"],
+.sfa-textarea[aria-invalid="true"] {
+  border-color: var(--sfa-danger);
+}
+
+.sfa-input:disabled,
+.sfa-select:disabled,
+.sfa-textarea:disabled {
+  background: var(--sfa-surface-3);
+  color: var(--sfa-text-muted);
+  cursor: not-allowed;
+}
+
+.sfa-textarea {
+  min-height: 88px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.sfa-input--mono {
+  font-family: var(--sfa-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.01em;
+}
+
+/* WP's two-column settings form: labels left, controls right, stacked on small. */
+.sfa-form-table {
+  display: grid;
+  gap: 18px;
+}
+
+.sfa-form-row {
+  display: grid;
+  gap: 6px;
+}
+
+@media (min-width: 860px) {
+  .sfa-form-row {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+  .sfa-form-row > .sfa-label {
+    padding-block-start: 8px;
+  }
+}
+
+.sfa-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sfa-switch__track {
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--sfa-border-strong);
+  position: relative;
+  transition: background 140ms ease;
+  flex-shrink: 0;
+}
+
+.sfa-switch__track::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  inset-inline-start: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 140ms ease;
+}
+
+.sfa-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sfa-switch input:checked + .sfa-switch__track {
+  background: var(--sfa-accent);
+}
+
+.sfa-switch input:checked + .sfa-switch__track::after {
+  transform: translateX(18px);
+}
+
+.sfa-switch input:focus-visible + .sfa-switch__track {
+  box-shadow: 0 0 0 3px var(--sfa-accent-ring);
+}
+
+.sfa-switch input:disabled + .sfa-switch__track {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ------------------------------------------------------------- buttons --- */
+
+.sfa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 550;
+  line-height: 1;
+  padding: 9px 14px;
+  border-radius: var(--sfa-radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.sfa-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--sfa-accent-ring);
+}
+
+.sfa-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.sfa-btn--primary {
+  background: var(--sfa-accent);
+  color: #fff;
+}
+
+.sfa-btn--primary:hover:not(:disabled) {
+  background: var(--sfa-accent-hover);
+}
+
+.sfa-btn--secondary {
+  background: var(--sfa-surface);
+  color: var(--sfa-accent);
+  border-color: var(--sfa-border-strong);
+}
+
+.sfa-btn--secondary:hover:not(:disabled) {
+  border-color: var(--sfa-accent);
+  background: var(--sfa-accent-soft);
+}
+
+.sfa-btn--ghost {
+  background: transparent;
+  color: var(--sfa-text-soft);
+}
+
+.sfa-btn--ghost:hover:not(:disabled) {
+  background: var(--sfa-surface-3);
+  color: var(--sfa-text);
+}
+
+.sfa-btn--danger {
+  background: transparent;
+  color: var(--sfa-danger);
+  border-color: transparent;
+}
+
+.sfa-btn--danger:hover:not(:disabled) {
+  background: var(--sfa-danger-soft);
+}
+
+.sfa-btn--sm {
+  padding: 6px 10px;
+  font-size: 12.5px;
+}
+
+.sfa-btn--icon {
+  padding: 8px;
+  width: 34px;
+  height: 34px;
+}
+
+/* -------------------------------------------------------------- notices -- */
+
+.sfa-notice {
+  display: flex;
+  gap: 11px;
+  padding: 12px 14px;
+  border-radius: var(--sfa-radius-sm);
+  border: 1px solid var(--sfa-border);
+  border-inline-start: 4px solid var(--sfa-text-muted);
+  background: var(--sfa-surface);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--sfa-text-soft);
+}
+
+.sfa-notice__icon {
+  flex-shrink: 0;
+  margin-block-start: 1px;
+}
+
+.sfa-notice strong {
+  color: var(--sfa-text);
+  font-weight: 650;
+}
+
+.sfa-notice--success {
+  border-inline-start-color: var(--sfa-success);
+  background: var(--sfa-success-soft);
+}
+.sfa-notice--success .sfa-notice__icon {
+  color: var(--sfa-success);
+}
+
+.sfa-notice--warning {
+  border-inline-start-color: var(--sfa-warn);
+  background: var(--sfa-warn-soft);
+}
+.sfa-notice--warning .sfa-notice__icon {
+  color: var(--sfa-warn);
+}
+
+.sfa-notice--error {
+  border-inline-start-color: var(--sfa-danger);
+  background: var(--sfa-danger-soft);
+}
+.sfa-notice--error .sfa-notice__icon {
+  color: var(--sfa-danger);
+}
+
+.sfa-notice--info {
+  border-inline-start-color: var(--sfa-info);
+  background: var(--sfa-info-soft);
+}
+.sfa-notice--info .sfa-notice__icon {
+  color: var(--sfa-info);
+}
+
+/* -------------------------------------------------------------- badges --- */
+
+.sfa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  background: var(--sfa-surface-3);
+  color: var(--sfa-text-soft);
+}
+
+.sfa-badge--success { background: var(--sfa-success-soft); color: var(--sfa-success); }
+.sfa-badge--warning { background: var(--sfa-warn-soft); color: var(--sfa-warn); }
+.sfa-badge--danger { background: var(--sfa-danger-soft); color: var(--sfa-danger); }
+.sfa-badge--info { background: var(--sfa-info-soft); color: var(--sfa-info); }
+.sfa-badge--accent { background: var(--sfa-accent-soft); color: var(--sfa-accent); }
+
+.sfa-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------- misc ---- */
+
+.sfa-empty {
+  padding: 44px 20px;
+  text-align: center;
+  color: var(--sfa-text-muted);
+}
+
+.sfa-empty__icon {
+  width: 40px;
+  height: 40px;
+  margin-inline: auto;
+  margin-block-end: 12px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: var(--sfa-surface-3);
+  color: var(--sfa-text-muted);
+}
+
+.sfa-empty__title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--sfa-text);
+}
+
+.sfa-empty__body {
+  font-size: 13px;
+  margin-block-start: 4px;
+  max-width: 46ch;
+  margin-inline: auto;
+}
+
+.sfa-kv {
+  display: grid;
+  gap: 9px;
+}
+
+.sfa-kv__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 13.5px;
+}
+
+.sfa-kv__key {
+  color: var(--sfa-text-muted);
+}
+
+.sfa-kv__value {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
+
+.sfa-sep {
+  height: 1px;
+  background: var(--sfa-border);
+  border: 0;
+  margin-block: 4px;
+}
+
+.sfa-mono {
+  font-family: var(--sfa-mono);
+  font-size: 12.5px;
+}
+
+.sfa-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--sfa-surface-3) 25%,
+    var(--sfa-surface-2) 37%,
+    var(--sfa-surface-3) 63%
+  );
+  background-size: 400% 100%;
+  animation: sfa-shimmer 1.4s ease infinite;
+  border-radius: var(--sfa-radius-sm);
+}
+
+@keyframes sfa-shimmer {
+  from { background-position: 100% 50%; }
+  to { background-position: 0 50%; }
+}
+
+/* -------------------------------------------------------------- mobile --- */
+
+.sfa-rail-scrim {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .sfa-rail {
+    transform: translateX(-100%);
+    transition: transform 180ms ease;
+    box-shadow: var(--sfa-shadow-lg);
+  }
+
+  .sfa-shell[data-mobile-open="true"] .sfa-rail {
+    transform: translateX(0);
+  }
+
+  .sfa-shell .sfa-main,
+  .sfa-shell[data-collapsed="true"] .sfa-main {
+    margin-inline-start: 0;
+  }
+
+  /* On a phone the rail is a drawer, so it is never the icon rail. */
+  .sfa-shell[data-collapsed="true"] .sfa-rail {
+    width: var(--sfa-rail-width);
+  }
+  .sfa-shell[data-collapsed="true"] .sfa-nav-item {
+    justify-content: flex-start;
+    padding-inline: 18px;
+  }
+  .sfa-shell[data-collapsed="true"] .sfa-nav-item__label,
+  .sfa-shell[data-collapsed="true"] .sfa-nav-item__chevron,
+  .sfa-shell[data-collapsed="true"] .sfa-rail__name,
+  .sfa-shell[data-collapsed="true"] .sfa-rail__role,
+  .sfa-shell[data-collapsed="true"] .sfa-subnav {
+    display: revert;
+  }
+
+  .sfa-shell[data-mobile-open="true"] .sfa-rail-scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    background: rgba(10, 13, 18, 0.5);
+  }
+
+  .sfa-bar__menu {
+    display: inline-flex;
+  }
+
+  .sfa-content {
+    padding: 16px 14px 56px;
+  }
+
+  .sfa-h1 {
+    font-size: 25px;
+  }
+
+  .sfa-form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sfa-rail,
+  .sfa-main,
+  .sfa-skeleton,
+  .sfa-switch__track,
+  .sfa-switch__track::after {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* ============================================================================
+   Studio dashboard
+   ----------------------------------------------------------------------------
+   The overview screen only. Everything else in the admin is a working surface
+   — dense tables, forms, filters — and reads better tight. The dashboard is
+   the one screen nobody works *in*, so it gets the softer treatment: floating
+   cards on the cream ground, generous radii, and one number per card large
+   enough to read across a desk.
+
+   Scoped to `.sfa-studio` so no other screen inherits the extra air.
+   ========================================================================== */
+
+.sfa-studio {
+  --studio-radius: 22px;
+  --studio-radius-sm: 14px;
+  --studio-shadow: 0 1px 2px rgba(71, 47, 29, 0.04), 0 18px 40px -28px rgba(71, 47, 29, 0.45);
+  display: grid;
+  gap: 18px;
+}
+
+/* ------------------------------------------------------------------ head -- */
+
+.sfa-studio__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.sfa-studio__hello {
+  font-family: var(--sfa-font-display);
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.sfa-studio__hello span {
+  color: var(--sfa-text-muted);
+}
+
+.sfa-studio__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* The date-range readout. Static, because the figures below are fixed windows. */
+.sfa-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 42px;
+  padding-inline: 16px;
+  border-radius: 999px;
+  border: 1px solid var(--sfa-border);
+  background: var(--sfa-surface);
+  color: var(--sfa-text-soft);
+  font-size: 13px;
+  white-space: nowrap;
+  box-shadow: var(--studio-shadow);
+}
+
+.sfa-chip svg {
+  color: var(--sfa-text-muted);
+}
+
+.sfa-studio .sfa-btn--pill {
+  height: 42px;
+  border-radius: 999px;
+  padding-inline: 20px;
+  box-shadow: var(--studio-shadow);
+}
+
+/* ------------------------------------------------------------------ grid -- */
+
+/*
+ * Three columns at desk width — a narrow left for the headline figures, a wide
+ * middle for the chart, a narrow right for the totals — collapsing to one.
+ */
+.sfa-studio__grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.6fr) minmax(0, 0.95fr);
+  align-items: start;
+}
+
+.sfa-studio__col {
+  display: grid;
+  gap: 18px;
+}
+
+.sfa-studio__wide {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+@media (max-width: 1240px) {
+  .sfa-studio__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .sfa-studio__grid > :nth-child(2) {
+    order: 3;
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 860px) {
+  .sfa-studio__grid,
+  .sfa-studio__wide {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sfa-studio__grid > :nth-child(2) {
+    order: 0;
+  }
+}
+
+/* ------------------------------------------------------------------ card -- */
+
+.sfa-scard {
+  background: var(--sfa-surface);
+  border: 1px solid var(--sfa-border);
+  border-radius: var(--studio-radius);
+  box-shadow: var(--studio-shadow);
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.sfa-scard__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sfa-scard__ident {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* The small rounded glyph tile the reference puts beside every card title. */
+.sfa-scard__glyph {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--sfa-surface-2);
+  color: var(--sfa-text-soft);
+}
+
+.sfa-scard__title {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.sfa-scard__sub {
+  font-size: 12.5px;
+  color: var(--sfa-text-muted);
+  margin: 2px 0 0;
+}
+
+/* Corner affordance: an arrow through to the screen that owns the detail. */
+.sfa-scard__out {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid var(--sfa-border);
+  background: var(--sfa-surface-2);
+  color: var(--sfa-text-soft);
+  transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+.sfa-scard__out:hover {
+  background: var(--sfa-accent);
+  border-color: var(--sfa-accent);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------- figures -- */
+
+/* The headline card, dressed as the physical thing it stands for. */
+.sfa-balance {
+  border-radius: var(--studio-radius-sm);
+  padding: 20px;
+  color: #FDF6EE;
+  background:
+    radial-gradient(120% 90% at 88% 8%, rgba(255, 214, 170, 0.28), rgba(255, 214, 170, 0) 60%),
+    linear-gradient(150deg, var(--sfa-accent) 0%, #A44718 58%, #7C3512 100%);
+  display: grid;
+  gap: 22px;
+  min-height: 176px;
+  align-content: space-between;
+  box-shadow: 0 20px 36px -24px rgba(124, 53, 18, 0.9);
+}
+
+.sfa-balance__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sfa-balance__brand {
+  font-family: var(--sfa-font-display);
+  font-size: 22px;
+  letter-spacing: 0.01em;
+}
+
+.sfa-balance__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.75;
+}
+
+.sfa-balance__value {
+  font-size: clamp(28px, 2.6vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  margin-block-start: 8px;
+}
+
+.sfa-balance__meta {
+  font-size: 12.5px;
+  opacity: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+
+/* A big number on a plain card, for everything that is not the headline. */
+.sfa-figure {
+  font-size: clamp(26px, 2.4vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sfa-figure__minor {
+  color: var(--sfa-text-muted);
+}
+
+/* Movement against the previous window. Neutral when there is nothing to say. */
+.sfa-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.sfa-delta--up {
+  background: var(--sfa-success-soft);
+  color: var(--sfa-success);
+}
+
+.sfa-delta--down {
+  background: var(--sfa-danger-soft);
+  color: var(--sfa-danger);
+}
+
+.sfa-delta--flat {
+  background: var(--sfa-surface-3);
+  color: var(--sfa-text-muted);
+}
+
+/* ------------------------------------------------------------- segmented -- */
+
+.sfa-seg {
+  display: inline-flex;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--sfa-surface-2);
+  border: 1px solid var(--sfa-border);
+}
+
+.sfa-seg__btn {
+  border: 0;
+  background: transparent;
+  color: var(--sfa-text-muted);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.sfa-seg__btn[aria-pressed="true"] {
+  background: var(--sfa-accent);
+  color: #fff;
+}
+
+/* ----------------------------------------------------------------- lists -- */
+
+/* History rows: who, then the aligned columns. */
+.sfa-hrow {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr) minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 12px 8px;
+  border-radius: var(--studio-radius-sm);
+  color: inherit;
+}
+
+.sfa-hrow--head {
+  padding-block: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--sfa-text-muted);
+}
+
+a.sfa-hrow:hover {
+  background: var(--sfa-surface-2);
+}
+
+.sfa-hrow__who {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.sfa-hrow__name {
+  font-weight: 600;
+  font-size: 13.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sfa-hrow__meta {
+  font-size: 12px;
+  color: var(--sfa-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sfa-hrow__num {
+  text-align: end;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  font-size: 13.5px;
+}
+
+/* Initials rather than photographs — a store has names, not avatars. */
+.sfa-avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--sfa-accent-soft);
+  color: var(--sfa-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 2px solid var(--sfa-surface);
+}
+
+.sfa-facepile {
+  display: flex;
+  align-items: center;
+}
+
+.sfa-facepile > * + * {
+  margin-inline-start: -12px;
+}
+
+.sfa-facepile__more {
+  background: var(--sfa-accent);
+  color: #fff;
+}
+
+/* Queue rows: the things that can be waiting on the owner right now. */
+.sfa-queue {
+  display: grid;
+  gap: 8px;
+}
+
+.sfa-queue__row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 13px;
+  border-radius: var(--studio-radius-sm);
+  background: var(--sfa-surface-2);
+  color: inherit;
+  transition: background 140ms ease;
+}
+
+.sfa-queue__row:hover {
+  background: var(--sfa-surface-3);
+}
+
+.sfa-queue__row[data-waiting="true"] {
+  background: var(--sfa-accent-soft);
+}
+
+.sfa-queue__label {
+  flex: 1;
+  font-size: 13.5px;
+}
+
+.sfa-queue__count {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------------ media --
+   Image pickers. The owner uploads a photo; nothing here asks for a URL.      */
+
+.sfa-media {
+  display: grid;
+  gap: 9px;
+}
+
+.sfa-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 128px;
+  padding: 18px 14px;
+  text-align: center;
+  color: var(--sfa-text-muted);
+  background: var(--sfa-surface-2);
+  border: 1.5px dashed var(--sfa-border-strong);
+  border-radius: var(--sfa-radius);
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
+}
+
+.sfa-drop:hover,
+.sfa-drop:focus-visible {
+  outline: none;
+  border-color: var(--sfa-accent);
+  background: var(--sfa-accent-soft);
+  color: var(--sfa-text-soft);
+}
+
+.sfa-drop--over {
+  border-color: var(--sfa-accent);
+  background: var(--sfa-accent-soft);
+  color: var(--sfa-text);
+}
+
+.sfa-drop--busy {
+  cursor: progress;
+  border-style: solid;
+}
+
+.sfa-drop__label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--sfa-text);
+}
+
+.sfa-drop__hint {
+  font-size: 12px;
+}
+
+.sfa-drop__spin {
+  animation: sfa-spin 900ms linear infinite;
+}
+
+@keyframes sfa-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sfa-drop__spin {
+    animation-duration: 2.4s;
+  }
+}
+
+.sfa-media-preview {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  padding: 11px;
+  background: var(--sfa-surface-2);
+  border: 1px solid var(--sfa-border);
+  border-radius: var(--sfa-radius);
+}
+
+.sfa-media-preview__img {
+  width: 104px;
+  height: 104px;
+  object-fit: cover;
+  border-radius: var(--sfa-radius-sm);
+  background: var(--sfa-surface-3);
+  border: 1px solid var(--sfa-border);
+}
+
+.sfa-media-preview__meta {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+}
+
+.sfa-media-preview__name {
+  font-size: 12.5px;
+  color: var(--sfa-text-muted);
+  overflow-wrap: anywhere;
+}
+
+.sfa-media-preview__actions {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.sfa-media-tools {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sfa-media-linkbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--sfa-text-muted);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sfa-media-linkbtn:hover {
+  color: var(--sfa-accent);
+}
+
+.sfa-media-link {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.sfa-media-link .sfa-input {
+  flex: 1 1 220px;
+}
+
+/* gallery strip */
+
+.sfa-media-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 9px;
+}
+
+.sfa-media-strip__item {
+  margin: 0;
+  position: relative;
+  border: 1px solid var(--sfa-border);
+  border-radius: var(--sfa-radius-sm);
+  overflow: hidden;
+  background: var(--sfa-surface-3);
+}
+
+.sfa-media-strip__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.sfa-media-strip__bar {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  padding: 4px;
+  background: var(--sfa-surface);
+  border-block-start: 1px solid var(--sfa-border);
+}
+
+.sfa-media-strip__bar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 24px;
+  border: 0;
+  border-radius: var(--sfa-radius-sm);
+  background: none;
+  color: var(--sfa-text-muted);
+  cursor: pointer;
+}
+
+.sfa-media-strip__bar button:hover:not(:disabled) {
+  background: var(--sfa-surface-3);
+  color: var(--sfa-text);
+}
+
+.sfa-media-strip__bar button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.sfa-media-strip__remove:hover:not(:disabled) {
+  background: var(--sfa-danger-soft) !important;
+  color: var(--sfa-danger) !important;
+}
+
+/* library modal */
+
+.sfa-media-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(31, 27, 23, 0.42);
+}
+
+.sfa-media-modal__panel {
+  width: min(760px, 100%);
+  max-height: min(78vh, 720px);
+  display: flex;
+  flex-direction: column;
+  background: var(--sfa-surface);
+  border: 1px solid var(--sfa-border);
+  border-radius: var(--sfa-radius);
+  box-shadow: var(--sfa-shadow-lg);
+}
+
+.sfa-media-modal__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 17px;
+  border-block-end: 1px solid var(--sfa-border);
+}
+
+.sfa-media-modal__body {
+  padding: 17px;
+  overflow-y: auto;
+}
+
+.sfa-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+  gap: 11px;
+}
+
+.sfa-media-grid__item {
+  padding: 0;
+  border: 1px solid var(--sfa-border);
+  border-radius: var(--sfa-radius-sm);
+  overflow: hidden;
+  background: var(--sfa-surface-3);
+  cursor: pointer;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.sfa-media-grid__item:hover,
+.sfa-media-grid__item:focus-visible {
+  outline: none;
+  border-color: var(--sfa-accent);
+  box-shadow: 0 0 0 3px var(--sfa-accent-ring);
+}
+
+.sfa-media-grid__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}

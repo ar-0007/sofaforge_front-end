@@ -1,67 +1,283 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Check, Filter, SlidersHorizontal } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import StoreLayout from "@/components/StoreLayout";
 import { OptimizedImage } from "@/components/OptimizedImage";
-import { SeriesFilter } from "@/components/StorefrontPrimitives";
+import { Container, Eyebrow } from "@/features/storefront/primitives";
+import { SHAPES, shapeOf, type ShapeId } from "@/features/storefront/content";
 import { catalogQueryOptions } from "@/lib/storefrontUi";
 import { trpc } from "@/lib/trpc";
 import { useCart } from "@/contexts/CartContext";
+import { productItem, productItems, toMajorUnits } from "@/lib/analytics/items";
+import { useTracking } from "@/lib/analytics/tracker";
+import { cn } from "@/lib/utils";
 
-const fallbackImage = "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=86";
+const fallbackImage =
+  "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=86";
 
+const SKELETON_KEYS = ["a", "b", "c", "d", "e", "f", "g", "h"];
+
+/** Shared card shell so skeletons and real cards occupy identical space. */
+const cardShell = "rounded-2xl border border-sand-200 bg-sand-50 p-3";
+
+const pillBase =
+  "shrink-0 rounded-full px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors";
+
+function seriesPill(isActive: boolean) {
+  return cn(
+    pillBase,
+    isActive
+      ? "bg-ink-900 text-sand-50"
+      : "border border-sand-300 text-ink-700 hover:border-clay-500 hover:text-clay-500"
+  );
+}
+
+/**
+ * The shop listing page.
+ *
+ * The grid card is intentionally the same component family as the home page
+ * carousel card, so a piece looks identical wherever it is surfaced.
+ */
 export default function Shop() {
   const searchParams = useSearchParams();
   const [selectedSeriesId, setSelectedSeriesId] = useState<number | undefined>(undefined);
-  const [filterOpen, setFilterOpen] = useState(false);
+  const [selectedShape, setSelectedShape] = useState<ShapeId | undefined>(undefined);
   const { data: seriesList = [] } = trpc.commerce.getSeries.useQuery(undefined, catalogQueryOptions);
-  const { data: products = [], isLoading } = trpc.commerce.getProducts.useQuery({ seriesId: selectedSeriesId }, catalogQueryOptions);
+  const { data: products = [], isLoading } = trpc.commerce.getProducts.useQuery(
+    { seriesId: selectedSeriesId },
+    catalogQueryOptions
+  );
   const { addToCart } = useCart();
+  const { track } = useTracking();
 
   useEffect(() => {
+    // Links arrive with either a series id or its slug, so accept both.
     const seriesFromUrl = searchParams?.get("series");
-    if (seriesFromUrl) setSelectedSeriesId(Number(seriesFromUrl));
-  }, [searchParams]);
+    if (seriesFromUrl) {
+      const asId = Number(seriesFromUrl);
+      const match = Number.isFinite(asId) && asId > 0
+        ? seriesList.find((series) => series.id === asId)
+        : seriesList.find((series) => series.slug === seriesFromUrl);
+      if (match) setSelectedSeriesId(match.id);
+    }
+
+    const shapeFromUrl = searchParams?.get("shape");
+    if (shapeFromUrl && SHAPES.items.some((item) => item.id === shapeFromUrl)) {
+      setSelectedShape(shapeFromUrl as ShapeId);
+    }
+  }, [searchParams, seriesList]);
 
   const activeSeries = seriesList.find((series) => series.id === selectedSeriesId);
+  const activeShape = SHAPES.items.find((shape) => shape.id === selectedShape);
+
+  // Shape is not a database column — it is implicit in the piece name, so the
+  // series filter runs server-side and the shape filter runs here.
+  const visibleProducts = selectedShape
+    ? products.filter((product) => shapeOf(product.name) === selectedShape)
+    : products;
+
+  // `view_item_list` per filter combination, not per render. The signature
+  // keeps a re-fetch that returns the same rows from firing a second event,
+  // while an actual filter change still reports the new list.
+  const listSignature = `${selectedSeriesId ?? "all"}:${selectedShape ?? "all"}:${visibleProducts.length}`;
+  const reportedList = useRef<string | null>(null);
+  useEffect(() => {
+    if (isLoading) return;
+    if (visibleProducts.length === 0) return;
+    if (reportedList.current === listSignature) return;
+    reportedList.current = listSignature;
+    track("view_item_list", {
+      items: productItems(visibleProducts, activeSeries?.name),
+      contentName: activeShape?.name ?? activeSeries?.name ?? "All pieces",
+      contentCategory: activeSeries?.name,
+    });
+  }, [isLoading, listSignature, visibleProducts, activeSeries?.name, activeShape?.name, track]);
+
+  const clearFilters = () => {
+    setSelectedSeriesId(undefined);
+    setSelectedShape(undefined);
+  };
 
   return (
     <StoreLayout>
-      <main>
-        <section className="relative overflow-hidden bg-[#e9dfd1] px-6 pb-16 pt-20 sm:px-10 lg:px-16 lg:pb-24 lg:pt-28">
-          <div className="mx-auto grid max-w-[1440px] gap-12 lg:grid-cols-12 lg:items-end">
-            <motion.div initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="lg:col-span-7">
-              <p className="eyebrow">The collection</p>
-              <h1 className="font-display mt-5 max-w-3xl text-7xl leading-[0.85] tracking-[-0.055em] sm:text-8xl lg:text-[9rem]">Pieces for the way you live.</h1>
-            </motion.div>
-            <motion.p initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.12 }} className="max-w-sm text-sm leading-7 text-[#6f6255] lg:col-span-4 lg:col-start-9">Custom-built in Canada from honest materials and enduring forms. Explore the series, then find the piece that makes the room yours.</motion.p>
-          </div>
-          <div className="pointer-events-none absolute -bottom-20 -right-10 font-display text-[18rem] leading-none text-[#d6c4b1]/50">01</div>
-        </section>
+      <main className="bg-sand-100 pb-24 pt-16 lg:pb-32 lg:pt-24">
+        <Container>
+          <header className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between sm:gap-12">
+            <div>
+              <Eyebrow>The collection</Eyebrow>
+              <h1 className="font-display mt-5 max-w-xl text-5xl leading-[1.02] tracking-[-0.03em] text-ink-900 lg:text-6xl">
+                Pieces for the way you live.
+              </h1>
+            </div>
+            <p className="max-w-xs text-sm leading-6 text-ink-500 sm:text-right">
+              Custom-built in Canada from honest materials and enduring forms. Explore the series,
+              then find the piece that makes the room yours.
+            </p>
+          </header>
 
-        <div className="sticky top-[76px] z-30 border-b border-[#decfbd] bg-[#f8f4ec]/95 backdrop-blur-xl">
-          <div className="scrollbar-subtle scroll-fade-x mx-auto flex max-w-[1440px] snap-x items-center gap-3 overflow-x-auto overscroll-x-contain px-6 py-4 [-webkit-overflow-scrolling:touch] sm:px-10 lg:px-16">
-            <SeriesFilter series={seriesList.map((series) => ({ id: series.id, name: series.name }))} selectedId={selectedSeriesId} onSelect={setSelectedSeriesId} />
-            <button type="button" onClick={() => setFilterOpen((open) => !open)} className="ml-auto hidden shrink-0 items-center gap-2 border-l border-[#decfbd] pl-5 text-[10px] font-bold uppercase tracking-[0.17em] text-[#6f6255] sm:flex"><SlidersHorizontal size={15} /> {filterOpen ? "Close" : "Filter"}</button>
+          <div
+            data-testid="shape-filter"
+            className="scrollbar-none mt-10 flex items-center gap-3 overflow-x-auto overscroll-x-contain pb-1 [-webkit-overflow-scrolling:touch]"
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedShape(undefined)}
+              aria-pressed={selectedShape === undefined}
+              className={seriesPill(selectedShape === undefined)}
+            >
+              All shapes
+            </button>
+            {SHAPES.items.map((shape) => (
+              <button
+                key={shape.id}
+                type="button"
+                onClick={() => setSelectedShape(shape.id)}
+                aria-pressed={selectedShape === shape.id}
+                className={seriesPill(selectedShape === shape.id)}
+              >
+                {shape.name}
+              </button>
+            ))}
           </div>
-          <AnimatePresence initial={false}>{filterOpen && <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden border-t border-[#decfbd]"><div className="mx-auto flex max-w-[1440px] items-center gap-5 px-6 py-4 text-[10px] uppercase tracking-[0.16em] text-[#6f6255] sm:px-10 lg:px-16"><span>Sort by</span><button type="button" className="font-bold text-[#25221d]">Featured <Check size={13} className="ml-1 inline" /></button><button type="button" className="transition-colors hover:text-[#25221d]">Price: Low to high</button><button type="button" className="transition-colors hover:text-[#25221d]">New arrivals</button></div></motion.div>}</AnimatePresence>
-        </div>
 
-        <section className="mx-auto max-w-[1440px] px-6 py-14 sm:px-10 lg:px-16 lg:py-20">
-          <div className="mb-10 flex items-end justify-between gap-4"><div><p className="eyebrow">{activeSeries ? `${activeSeries.name} series` : "Made to order"}</p><h2 className="font-display mt-3 text-4xl tracking-[-0.035em] sm:text-5xl">{activeSeries ? activeSeries.name : "Everyday icons"}</h2></div><button type="button" onClick={() => setFilterOpen((open) => !open)} className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#6f6255] sm:hidden"><Filter size={15} /> Filter</button></div>
-          {isLoading ? <div className="grid grid-cols-1 gap-x-5 gap-y-14 sm:grid-cols-2 lg:grid-cols-3"><div className="aspect-[0.87] animate-pulse bg-[#e9dfd1]" /><div className="aspect-[0.87] animate-pulse bg-[#e9dfd1]" /><div className="aspect-[0.87] animate-pulse bg-[#e9dfd1]" /></div> : <AnimatePresence mode="wait"><motion.div key={selectedSeriesId ?? "all"} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35 }} className="grid grid-cols-1 gap-x-5 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">{products.map((product, index) => <motion.article key={product.id} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: index * 0.07 }} className="group">
-            <Link href={`/product/${product.slug}`} className="block">
-              <div className="relative aspect-[0.87] overflow-hidden bg-[#e9dfd1]"><OptimizedImage src={product.imageUrl || fallbackImage} alt={product.name} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw" className="image-hover h-full w-full object-cover" /><span className="absolute left-4 top-4 bg-[#f8f4ec]/90 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.16em] text-[#6f6255]">Made to order</span><span className="absolute bottom-4 right-4 grid h-11 w-11 translate-y-3 place-items-center rounded-full bg-[#f8f4ec] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"><ArrowRight size={16} /></span></div>
-              <div className="mt-5 flex items-start justify-between gap-4"><div><h3 className="font-display text-2xl tracking-[-0.02em]">{product.name}</h3><p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-[#766b5d]">{activeSeries?.name || "Sofa Co."} · Customizable</p></div><p className="whitespace-nowrap text-xs font-semibold text-[#6f6255]">From ${(product.startingPrice / 100).toLocaleString()}</p></div>
-            </Link>
-            <div className="mt-5 flex items-center justify-between border-t border-[#decfbd] pt-4"><Link href={`/product/${product.slug}`} className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#6f6255] transition-colors hover:text-[#25221d]">View details</Link><motion.button type="button" whileTap={{ scale: 0.96 }} onClick={() => addToCart({ id: `product-${product.id}`, name: product.name, price: product.startingPrice, quantity: 1, image: product.imageUrl || undefined, variantDetails: "Standard configuration" })} className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[#9b6e4b]">Add to bag <ArrowRight size={14} /></motion.button></div>
-          </motion.article>)}</motion.div></AnimatePresence>}
-          {!isLoading && products.length === 0 && <div className="border border-dashed border-[#cdbda9] px-6 py-20 text-center"><p className="font-display text-4xl">A considered collection is on its way.</p><p className="mt-3 text-sm text-[#766b5d]">Try another series or return to all pieces.</p><button type="button" onClick={() => setSelectedSeriesId(undefined)} className="editorial-link mt-7">View all pieces <ArrowRight size={15} /></button></div>}
-        </section>
+          <div
+            data-testid="series-filter"
+            className="scrollbar-none mt-3 flex items-center gap-3 overflow-x-auto overscroll-x-contain pb-1 [-webkit-overflow-scrolling:touch]"
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedSeriesId(undefined)}
+              aria-pressed={selectedSeriesId === undefined}
+              className={seriesPill(selectedSeriesId === undefined)}
+            >
+              All
+            </button>
+            {seriesList.map((series) => (
+              <button
+                key={series.id}
+                type="button"
+                onClick={() => setSelectedSeriesId(series.id)}
+                aria-pressed={selectedSeriesId === series.id}
+                className={seriesPill(selectedSeriesId === series.id)}
+              >
+                {series.name}
+              </button>
+            ))}
+          </div>
+
+          <p className="mt-6 text-sm text-ink-500">
+            {visibleProducts.length} {visibleProducts.length === 1 ? "piece" : "pieces"}
+            {activeShape ? ` · ${activeShape.name}` : ""}
+            {activeSeries ? ` · ${activeSeries.name} series` : ""}
+            {!activeShape && !activeSeries ? " · every one made to order" : ""}
+          </p>
+
+          {isLoading ? (
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {SKELETON_KEYS.map((key) => (
+                <div key={key} className={cardShell}>
+                  <div className="aspect-square animate-pulse rounded-xl bg-sand-200" />
+                  <div className="px-1 pb-1 pt-4">
+                    <div className="h-3.5 w-2/3 animate-pulse rounded bg-sand-200" />
+                    <div className="mt-2.5 h-3 w-1/3 animate-pulse rounded bg-sand-200" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : visibleProducts.length === 0 ? (
+            <div className="mt-8 rounded-2xl border border-dashed border-sand-300 px-6 py-20 text-center">
+              <p className="font-display text-3xl text-ink-900">No pieces match that pairing.</p>
+              <p className="mt-3 text-sm text-ink-500">
+                Not every shape is built in every series. Clear the filters to see all of them.
+              </p>
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="mt-7 inline-flex items-center rounded-full bg-clay-500 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-clay-600"
+              >
+                View all pieces
+              </button>
+            </div>
+          ) : (
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {visibleProducts.map((product, index) => (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  // Cap the stagger so rows far down the page still arrive promptly.
+                  transition={{ duration: 0.5, ease: "easeOut", delay: Math.min(index, 7) * 0.05 }}
+                >
+                  <Link
+                    href={`/product/${product.slug}`}
+                    className={cn(
+                      cardShell,
+                      "group relative block h-full",
+                      "transition-all duration-300 hover:-translate-y-1 hover:ring-1 hover:ring-ink-900/15",
+                      "hover:shadow-[0_20px_45px_-28px_rgba(31,27,23,0.45)]"
+                    )}
+                  >
+                    <div className="aspect-square overflow-hidden rounded-xl bg-sand-100">
+                      <OptimizedImage
+                        src={product.imageUrl || fallbackImage}
+                        alt={product.name}
+                        sizes="(min-width: 1280px) 22vw, (min-width: 1024px) 30vw, (min-width: 640px) 46vw, 92vw"
+                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                    </div>
+
+                    <div className="px-1 pb-1 pr-12 pt-4">
+                      <h2 className="truncate text-sm font-medium text-ink-900">{product.name}</h2>
+                      <p className="mt-1 text-sm text-ink-500">
+                        From ${(product.startingPrice / 100).toLocaleString()}
+                      </p>
+                    </div>
+
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute bottom-16 right-4 hidden rounded-full bg-ink-900 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-sand-50 opacity-0 transition-opacity duration-200 group-hover:opacity-100 sm:block"
+                    >
+                      Add to bag
+                    </span>
+
+                    <motion.button
+                      type="button"
+                      whileTap={{ scale: 0.94 }}
+                      aria-label={`Add ${product.name} to bag`}
+                      onClick={(event) => {
+                        // The whole card is a Link, so keep the click on the button.
+                        event.preventDefault();
+                        event.stopPropagation();
+                        addToCart({
+                          id: `product-${product.id}`,
+                          name: product.name,
+                          price: product.startingPrice,
+                          quantity: 1,
+                          image: product.imageUrl || undefined,
+                          variantDetails: "Standard configuration",
+                        });
+                        track("add_to_cart", {
+                          value: toMajorUnits(product.startingPrice),
+                          items: [productItem(product, { category: activeSeries?.name })],
+                          contentName: product.name,
+                          contentCategory: activeSeries?.name,
+                        });
+                      }}
+                      className="absolute bottom-4 right-4 grid h-10 w-10 place-items-center rounded-full bg-clay-500 text-white transition-colors hover:bg-clay-600"
+                    >
+                      <ShoppingBag size={16} strokeWidth={1.7} />
+                    </motion.button>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </Container>
       </main>
     </StoreLayout>
   );

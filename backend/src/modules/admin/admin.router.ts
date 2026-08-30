@@ -1,5 +1,5 @@
 import { TRPCError } from "@trpc/server";
-import { and, desc, eq, sql } from "drizzle-orm";
+import { and, desc, eq, gte, ne, sql } from "drizzle-orm";
 import { z } from "zod";
 import {
   adminAuditLogs,
@@ -16,7 +16,9 @@ import {
 } from "../../db/schema";
 import { getDb } from "../../db";
 import { notifyOwner } from "../../core/notification";
+import { imageRef } from "../../core/media";
 import { adminProcedure, router } from "../../core/trpc";
+import { productOptionsRouter } from "../catalog/productOptions.router";
 
 const visibility = z.enum(["true", "false"]);
 const productPayload = z.object({
@@ -25,7 +27,7 @@ const productPayload = z.object({
   slug: z.string().min(2).max(255),
   description: z.string().max(5000).nullable().optional(),
   startingPrice: z.number().int().nonnegative(),
-  imageUrl: z.string().url().nullable().optional(),
+  imageUrl: imageRef.nullable().optional(),
   gallery: z.string().max(10000).nullable().optional(),
   isCustom: visibility.default("true"),
   isVisible: visibility.default("true"),
@@ -34,10 +36,12 @@ const productPayload = z.object({
 });
 
 const seriesPayload = z.object({
+  /** Null makes this a top-level category; an id nests it inside one. */
+  parentId: z.number().int().positive().nullable().optional(),
   name: z.string().min(2).max(100),
   slug: z.string().min(2).max(100),
   description: z.string().max(2000).nullable().optional(),
-  imageUrl: z.string().url().nullable().optional(),
+  imageUrl: imageRef.nullable().optional(),
   isVisible: visibility.default("true"),
   sortOrder: z.number().int().min(0).default(0),
 });
@@ -67,15 +71,37 @@ async function addAuditLog(db: Awaited<ReturnType<typeof getDb>>, adminUserId: n
 }
 
 export const adminRouter = router({
+  /** Catalog -> Product options: the configurator the shopper answers. */
+  options: productOptionsRouter,
+
   overview: adminProcedure.query(async () => {
     const db = await requireDb();
-    const [productCount, orderCount, inquiryCount, reviewCount, activeCartCount, reminderCount] = await Promise.all([
+    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const [
+      productCount,
+      orderCount,
+      inquiryCount,
+      reviewCount,
+      activeCartCount,
+      reminderCount,
+      customerCount,
+      revenueTotals,
+      revenueRecent,
+      pendingOrderCount,
+      newInquiryCount,
+    ] = await Promise.all([
       db.select({ value: sql<number>`count(*)` }).from(products),
       db.select({ value: sql<number>`count(*)` }).from(orders),
       db.select({ value: sql<number>`count(*)` }).from(inquiries),
       db.select({ value: sql<number>`count(*)` }).from(productReviews).where(eq(productReviews.status, "pending")),
       db.select({ value: sql<number>`count(*)` }).from(carts).where(eq(carts.status, "active")),
       db.select({ value: sql<number>`count(*)` }).from(customerReminders).where(eq(customerReminders.status, "draft")),
+      db.select({ value: sql<number>`count(*)` }).from(users),
+      // Cancelled orders are excluded: an owner reading "revenue" means money kept.
+      db.select({ value: sql<number>`coalesce(sum(${orders.totalAmount}), 0)` }).from(orders).where(ne(orders.status, "cancelled")),
+      db.select({ value: sql<number>`coalesce(sum(${orders.totalAmount}), 0)` }).from(orders).where(and(ne(orders.status, "cancelled"), gte(orders.createdAt, thirtyDaysAgo))),
+      db.select({ value: sql<number>`count(*)` }).from(orders).where(eq(orders.status, "pending")),
+      db.select({ value: sql<number>`count(*)` }).from(inquiries).where(eq(inquiries.status, "new")),
     ]);
     return {
       products: Number(productCount[0]?.value ?? 0),
@@ -84,8 +110,44 @@ export const adminRouter = router({
       pendingReviews: Number(reviewCount[0]?.value ?? 0),
       activeCarts: Number(activeCartCount[0]?.value ?? 0),
       reminderDrafts: Number(reminderCount[0]?.value ?? 0),
+      customers: Number(customerCount[0]?.value ?? 0),
+      /** Minor units, matching orders.totalAmount. */
+      revenueTotal: Number(revenueTotals[0]?.value ?? 0),
+      revenueLast30Days: Number(revenueRecent[0]?.value ?? 0),
+      pendingOrders: Number(pendingOrderCount[0]?.value ?? 0),
+      newInquiries: Number(newInquiryCount[0]?.value ?? 0),
     };
   }),
+
+  /** Daily revenue and order count, for the dashboard chart. */
+  salesTimeline: adminProcedure
+    .input(z.object({ days: z.number().int().min(7).max(180).default(30) }).optional())
+    .query(async ({ input }) => {
+      const db = await requireDb();
+      const days = input?.days ?? 30;
+      const since = new Date(Date.now() - days * 24 * 60 * 60 * 1000);
+      const rows = await db
+        .select({
+          day: sql<string>`date(${orders.createdAt})`,
+          revenue: sql<number>`coalesce(sum(${orders.totalAmount}), 0)`,
+          orderCount: sql<number>`count(*)`,
+        })
+        .from(orders)
+        .where(and(ne(orders.status, "cancelled"), gte(orders.createdAt, since)))
+        .groupBy(sql`date(${orders.createdAt})`)
+        .orderBy(sql`date(${orders.createdAt})`);
+
+      // Fill the gaps: a chart with missing days reads as a dip, not as no data.
+      const byDay = new Map(rows.map(row => [String(row.day), row]));
+      const series: Array<{ day: string; revenue: number; orderCount: number }> = [];
+      for (let offset = days - 1; offset >= 0; offset -= 1) {
+        const date = new Date(Date.now() - offset * 24 * 60 * 60 * 1000);
+        const key = date.toISOString().slice(0, 10);
+        const row = byDay.get(key);
+        series.push({ day: key, revenue: Number(row?.revenue ?? 0), orderCount: Number(row?.orderCount ?? 0) });
+      }
+      return series;
+    }),
 
   listProducts: adminProcedure.query(async () => {
     const db = await requireDb();
@@ -155,6 +217,18 @@ export const adminRouter = router({
   updateSeries: adminProcedure.input(seriesPayload.extend({ id: z.number().int().positive() })).mutation(async ({ ctx, input }) => {
     const db = await requireDb();
     const { id, ...changes } = input;
+    if (changes.parentId) {
+      if (changes.parentId === id) {
+        throw new TRPCError({ code: "BAD_REQUEST", message: "A collection cannot sit inside itself." });
+      }
+      const [parent] = await db.select({ parentId: series.parentId }).from(series).where(eq(series.id, changes.parentId)).limit(1);
+      if (!parent) throw new TRPCError({ code: "BAD_REQUEST", message: "That parent category no longer exists." });
+      // Two levels is the whole shape of the browse path; a third would give
+      // the storefront a page it has no route for.
+      if (parent.parentId !== null) {
+        throw new TRPCError({ code: "BAD_REQUEST", message: "Collections can only nest one level under a category." });
+      }
+    }
     await db.update(series).set(changes).where(eq(series.id, id));
     await addAuditLog(db, ctx.user.id, "series.updated", "series", id, { name: changes.name });
     return { success: true };
@@ -163,6 +237,8 @@ export const adminRouter = router({
     const db = await requireDb();
     const linkedProduct = await db.select({ id: products.id }).from(products).where(eq(products.seriesId, input.id)).limit(1);
     if (linkedProduct[0]) throw new TRPCError({ code: "BAD_REQUEST", message: "Remove or reassign products in this series before deleting it." });
+    const child = await db.select({ id: series.id }).from(series).where(eq(series.parentId, input.id)).limit(1);
+    if (child[0]) throw new TRPCError({ code: "BAD_REQUEST", message: "Move or delete the collections inside this category first." });
     await db.delete(contentPlacements).where(and(eq(contentPlacements.entityType, "series"), eq(contentPlacements.entityId, input.id)));
     await db.delete(series).where(eq(series.id, input.id));
     await addAuditLog(db, ctx.user.id, "series.deleted", "series", input.id);
@@ -180,7 +256,7 @@ export const adminRouter = router({
     entityId: z.number().int().positive().nullable().optional(),
     heading: z.string().max(255).nullable().optional(),
     subheading: z.string().max(3000).nullable().optional(),
-    imageUrl: z.string().url().nullable().optional(),
+    imageUrl: imageRef.nullable().optional(),
     ctaLabel: z.string().max(120).nullable().optional(),
     ctaHref: z.string().max(255).nullable().optional(),
     sortOrder: z.number().int().min(0).default(0),

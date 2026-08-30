@@ -1,15 +1,20 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
+import mysql from "mysql2";
 import { InsertUser, users } from "./schema";
+import { poolOptionsFromUrl } from "./connection";
 import { ENV } from '../core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
 // Lazily create the drizzle instance so local tooling can run without a DB.
+// The pool is built from explicit options rather than handed the raw URL —
+// see connection.ts for why the URL's own ssl parameters cannot be trusted.
 export async function getDb() {
   if (!_db && process.env.DATABASE_URL) {
     try {
-      _db = drizzle(process.env.DATABASE_URL);
+      const pool = mysql.createPool(poolOptionsFromUrl(process.env.DATABASE_URL));
+      _db = drizzle(pool);
     } catch (error) {
       console.warn("[Database] Failed to connect:", error);
       _db = null;

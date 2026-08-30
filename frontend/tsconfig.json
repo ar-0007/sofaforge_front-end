@@ -17,7 +17,7 @@
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
     "baseUrl": ".",
-    "types": ["node", "google.maps"],
+    "types": ["node"],
     "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./src/*"],

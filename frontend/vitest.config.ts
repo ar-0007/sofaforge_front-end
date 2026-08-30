@@ -14,6 +14,9 @@ export default defineConfig({
       "@assets": path.resolve(WORKSPACE_ROOT, "attached_assets"),
     },
   },
+  // Components use the automatic JSX runtime (Next injects it), so tests must
+  // too — otherwise files without an explicit `import React` fail at render.
+  esbuild: { jsx: "automatic" },
   test: {
     environment: "node",
     include: ["src/**/*.{test,spec}.{ts,tsx}"],

@@ -1,0 +1,24 @@
+# Netlify — frontend only. The API lives on Render (see render.yaml).
+#
+# The build runs from the repo root, not frontend/: this is a pnpm workspace,
+# and next.config.ts compiles TypeScript out of shared/ (externalDir), so both
+# the root lockfile and shared/ must be present.
+#
+# Netlify detects Next.js and installs its Next Runtime automatically — there is
+# no plugin to add by hand.
+
+[build]
+  base = "."
+  publish = "frontend/.next"
+  # --prod=false is not optional: pnpm skips devDependencies when
+  # NODE_ENV=production, and next/typescript/tailwind all live there.
+  command = "corepack enable && pnpm install --frozen-lockfile --prod=false && pnpm --filter @sofa/frontend build"
+
+[build.environment]
+  NODE_VERSION = "22.17.0"
+  # Next traces files from the workspace root; keep the whole tree available.
+  NETLIFY_USE_PNPM = "true"
+
+# Everything else — including /api/* — is handled by Next itself. The rewrite
+# in frontend/next.config.ts forwards /api/* to API_PROXY_TARGET, which keeps
+# browser requests same-origin so the session cookie stays first-party.

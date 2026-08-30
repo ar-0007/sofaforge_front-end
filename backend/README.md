@@ -54,6 +54,16 @@ se bhi start ho — env mil jata hai.
 | `DATABASE_URL` | MySQL connection string |
 | `JWT_SECRET` | Session signing |
 | `SERVE_STATIC` | `true` ho to built frontend bhi yahi serve karega (single-container deploy) |
+| `UPLOAD_DIR` | Admin se upload hui product photos kahan rakhi jayen (default: `backend/uploads/`) |
+
+### Uploads
+
+Owner apni photos dashboard se upload karta hai — koi S3/CDN account zaroori
+nahi. Files `UPLOAD_DIR` me disk pe jati hain aur `/api/uploads/<file>` se
+read-only serve hoti hain (wahi `/api/` prefix jo gateway pehle se forward
+karta hai). Deploy pe ye folder **persistent** hona chahiye: redeploy pe wipe
+hone wali jagah par mat rakho, warna shop ki tasveerein gayab ho jayengi.
+Backup lete waqt database ke saath ye folder bhi lena hai.
 
 ## Module pattern (target)
 

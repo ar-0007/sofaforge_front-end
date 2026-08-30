@@ -1,0 +1,69 @@
+# Render Blueprint — backend API only. The frontend is deployed on Netlify.
+#
+# Render → New → Blueprint → point at this repo. It reads this file, creates
+# the service, and then asks you for every value marked `sync: false`.
+#
+# Build runs from the REPO ROOT, not backend/: this is a pnpm workspace and the
+# backend bundles source from shared/ at build time, so the root lockfile and
+# the shared/ folder both have to be present.
+services:
+  - type: web
+    name: sofaforge-api
+    runtime: node
+    plan: starter # `free` also works, but see the disk note below.
+    region: oregon # move this closer to the database if it is not in the US.
+    branch: main
+    autoDeploy: true
+
+    # --prod=false is not optional: pnpm skips devDependencies whenever
+    # NODE_ENV=production, and esbuild, drizzle-kit and tsx all live there.
+    buildCommand: >-
+      corepack enable &&
+      pnpm install --frozen-lockfile --prod=false &&
+      pnpm --filter @sofa/backend db:migrate &&
+      pnpm --filter @sofa/backend build
+    startCommand: pnpm --filter @sofa/backend start
+
+    healthCheckPath: /api/health
+
+    # Admin-uploaded product photography is written to disk (core/media.ts).
+    # Without a disk, Render's filesystem is wiped on every deploy and restart,
+    # and the client's images vanish. Disks require a paid plan and are not
+    # available on `free`.
+    disk:
+      name: uploads
+      mountPath: /var/data
+      sizeGB: 1
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: UPLOAD_DIR
+        value: /var/data/uploads
+      - key: VITE_APP_ID
+        value: sofa-co
+      - key: OWNER_OPEN_ID
+        value: admin-local
+
+      # Generated once by Render and kept across deploys.
+      - key: JWT_SECRET
+        generateValue: true
+
+      # Prompted for on first deploy — see backend/.env.production.example.
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+
+      # Manus OAuth is not configured, so email+password is the only way into
+      # /admin. Set a real password when prompted.
+      - key: ALLOW_DEV_LOGIN
+        value: "true"
+      - key: DEV_ADMIN_EMAIL
+        sync: false
+      - key: DEV_ADMIN_PASSWORD
+        sync: false
+      - key: DEV_ADMIN_NAME
+        value: Sofa Co. Admin
+
+      # Do NOT add PORT or API_PORT — Render injects PORT and server.ts uses it.

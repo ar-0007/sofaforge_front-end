@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import Page from "@/views/AdminPanel";
+import Dashboard from "@/features/admin/screens/Dashboard";
 
 export const metadata: Metadata = {
-  title: "Admin",
-  description: "Sofa Co. admin panel.",
+  title: "Dashboard",
+  description: "Sofa Co. store admin.",
   alternates: { canonical: "/admin" },
 };
 
-export default Page;
+export default function Page() {
+  return <Dashboard />;
+}

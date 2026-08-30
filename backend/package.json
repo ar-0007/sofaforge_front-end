@@ -15,7 +15,9 @@
     "db:push": "drizzle-kit generate && drizzle-kit migrate",
     "db:seed": "tsx src/db/seeders/seed.ts",
     "create-admin": "tsx scripts/create-admin.ts",
-    "shopify:probe": "tsx scripts/shopify-probe.runner.ts"
+    "shopify:probe": "tsx scripts/shopify-probe.runner.ts",
+    "db:catalog": "tsx src/db/seeders/importCatalog.ts",
+    "db:options": "tsx src/db/seeders/importOptions.ts"
   },
   "dependencies": {
     "@trpc/server": "^11.6.0",

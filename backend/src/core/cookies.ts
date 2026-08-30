@@ -39,10 +39,16 @@ export function getSessionCookieOptions(
   //       ? hostname
   //       : undefined;
 
+  const secure = isSecureRequest(req);
+
+  // Browsers reject `SameSite=None` unless the cookie is also `Secure`, so on
+  // plain-http local development that combination would silently drop the
+  // session. Fall back to `lax` there — same-origin requests still carry it,
+  // and production (https) keeps the cross-site `none` behaviour OAuth needs.
   return {
     httpOnly: true,
     path: "/",
-    sameSite: "none",
-    secure: isSecureRequest(req),
+    sameSite: secure ? "none" : "lax",
+    secure,
   };
 }

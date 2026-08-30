@@ -1,0 +1,1730 @@
+{
+ "series": [
+  {
+   "name": "Stanton II",
+   "slug": "stanton-ii",
+   "imageUrl": "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-XL-SECTIONAL-CUSTOM-3.png",
+   "count": 21,
+   "sortOrder": 1
+  },
+  {
+   "name": "Stanton",
+   "slug": "stanton",
+   "imageUrl": "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-XL-SECTIONAL-CUSTOM-3.png",
+   "count": 21,
+   "sortOrder": 2
+  },
+  {
+   "name": "Isla",
+   "slug": "isla",
+   "imageUrl": "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-SOFA-CUSTOM-3.png",
+   "count": 20,
+   "sortOrder": 3
+  },
+  {
+   "name": "Diane",
+   "slug": "diane",
+   "imageUrl": "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-CHAIR-CUSTOM-3.jpeg",
+   "count": 15,
+   "sortOrder": 4
+  },
+  {
+   "name": "Nimbus",
+   "slug": "nimbus",
+   "imageUrl": "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-OTTOMAN-CUSTOM-1.png",
+   "count": 14,
+   "sortOrder": 5
+  },
+  {
+   "name": "Paloma",
+   "slug": "paloma",
+   "imageUrl": "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-XL-SOFA-CUSTOM-2.png",
+   "count": 11,
+   "sortOrder": 6
+  },
+  {
+   "name": "Bobby",
+   "slug": "bobby",
+   "imageUrl": "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-ARMLESS-CHAIR-CUSTOM-4.jpeg",
+   "count": 8,
+   "sortOrder": 7
+  }
+ ],
+ "products": [
+  {
+   "name": "Stanton II XL Sectional",
+   "slug": "stanton-ii-xl-sectional-custom",
+   "series": "Stanton II",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-XL-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-XL-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-XL-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-XL-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-XL-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-XL-SECTIONAL-CUSTOM-5.png"
+   ]
+  },
+  {
+   "name": "Stanton II One-Arm Loveseat",
+   "slug": "stanton-ii-one-arm-loveseat-custom",
+   "series": "Stanton II",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-LOVESEAT-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-LOVESEAT-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton II One-Arm Sofa",
+   "slug": "stanton-ii-one-arm-sofa-custom",
+   "series": "Stanton II",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-SOFA-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Stanton II Rectangular Storage Ottoman",
+   "slug": "stanton-ii-rectangular-storage-ottoman-custom",
+   "series": "Stanton II",
+   "shape": "ottoman",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-RECTANGULAR-STORAGE-OTTOMAN-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-RECTANGULAR-STORAGE-OTTOMAN-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-RECTANGULAR-STORAGE-OTTOMAN-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-RECTANGULAR-STORAGE-OTTOMAN-CUSTOM-2.jpeg"
+   ]
+  },
+  {
+   "name": "Stanton II Sofa",
+   "slug": "stanton-ii-sofa-custom",
+   "series": "Stanton II",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-SOFA-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton II Square Corner",
+   "slug": "stanton-ii-square-corner-custom",
+   "series": "Stanton II",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-SQUARE-CORNER-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-SQUARE-CORNER-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-SQUARE-CORNER-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-SQUARE-CORNER-CUSTOM-2.jpeg"
+   ]
+  },
+  {
+   "name": "Stanton II Corner Chaise Sectional",
+   "slug": "stanton-ii-corner-chaise-sectional-custom",
+   "series": "Stanton II",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-CHAISE-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-CHAISE-SECTIONAL-CUSTOM-6.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-CHAISE-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-CHAISE-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-CHAISE-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-CHAISE-SECTIONAL-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton II Corner Loveseat",
+   "slug": "stanton-ii-corner-loveseat-custom",
+   "series": "Stanton II",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-LOVESEAT-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-LOVESEAT-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Stanton II Corner Sofa",
+   "slug": "stanton-ii-corner-sofa-custom",
+   "series": "Stanton II",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-SOFA-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-SOFA-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Stanton II Loveseat",
+   "slug": "stanton-ii-loveseat-custom",
+   "series": "Stanton II",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-LOVESEAT-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-LOVESEAT-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton II One-Arm Chair",
+   "slug": "stanton-ii-one-arm-chair-custom",
+   "series": "Stanton II",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-CHAIR-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-CHAIR-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-CHAIR-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-CHAIR-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ONE-ARM-CHAIR-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Stanton II 2×1 Sectional",
+   "slug": "stanton-ii-2-x-1-sectional-custom",
+   "series": "Stanton II",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-1-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-1-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-1-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-1-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-1-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-1-SECTIONAL-CUSTOM-5.png"
+   ]
+  },
+  {
+   "name": "Stanton II 2×2 Sectional",
+   "slug": "stanton-ii-2-x-2-sectional-custom",
+   "series": "Stanton II",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-2-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-2-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-2-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-2-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-2-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-2-SECTIONAL-CUSTOM-5.png"
+   ]
+  },
+  {
+   "name": "Stanton II 2×3 Sectional",
+   "slug": "stanton-ii-2-x-3-sectional-custom",
+   "series": "Stanton II",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-3-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-3-SECTIONAL-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-3-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-3-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-3-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-2-x-3-SECTIONAL-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton II Arm Chaise",
+   "slug": "stanton-ii-arm-chaise-custom",
+   "series": "Stanton II",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARM-CHAISE-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARM-CHAISE-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARM-CHAISE-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARM-CHAISE-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARM-CHAISE-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARM-CHAISE-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton II Arm Chaise Sectional",
+   "slug": "stanton-ii-arm-chaise-sectional-custom",
+   "series": "Stanton II",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARM-CHAISE-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARM-CHAISE-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARM-CHAISE-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARM-CHAISE-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARM-CHAISE-SECTIONAL-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton II Armless Chair",
+   "slug": "stanton-ii-armless-chair-custom",
+   "series": "Stanton II",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-CHAIR-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-CHAIR-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-CHAIR-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-CHAIR-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-CHAIR-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Stanton II Armless Loveseat",
+   "slug": "stanton-ii-armless-loveseat-custom",
+   "series": "Stanton II",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-LOVESEAT-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-LOVESEAT-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Stanton II Armless Sofa",
+   "slug": "stanton-ii-armless-sofa-custom",
+   "series": "Stanton II",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-ARMLESS-SOFA-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Stanton II Chair",
+   "slug": "stanton-ii-chair-custom",
+   "series": "Stanton II",
+   "shape": "chair",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CHAIR-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CHAIR-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CHAIR-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CHAIR-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CHAIR-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Stanton II Corner Chaise",
+   "slug": "stanton-ii-corner-chaise-custom",
+   "series": "Stanton II",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-CHAISE-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-CHAISE-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-CHAISE-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-CHAISE-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-II-CORNER-CHAISE-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Stanton XL Sectional",
+   "slug": "stanton-xl-sectional-custom-3",
+   "series": "Stanton",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-XL-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-XL-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-XL-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-XL-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-XL-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-XL-SECTIONAL-CUSTOM-5.png"
+   ]
+  },
+  {
+   "name": "Stanton One-Arm Sofa",
+   "slug": "stanton-one-arm-sofa-custom",
+   "series": "Stanton",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-SOFA-CUSTOM-5.png"
+   ]
+  },
+  {
+   "name": "Stanton Rectangular Storage Ottoman",
+   "slug": "stanton-rectangular-storage-ottoman-custom",
+   "series": "Stanton",
+   "shape": "ottoman",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-RECTANGULAR-STORAGE-OTTOMAN-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-RECTANGULAR-STORAGE-OTTOMAN-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-RECTANGULAR-STORAGE-OTTOMAN-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-RECTANGULAR-STORAGE-OTTOMAN-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-RECTANGULAR-STORAGE-OTTOMAN-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Stanton Sofa",
+   "slug": "stanton-sofa-custom-2",
+   "series": "Stanton",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SOFA-CUSTOM-4.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SOFA-CUSTOM-5.png"
+   ]
+  },
+  {
+   "name": "Stanton Square Corner",
+   "slug": "stanton-square-corner-custom",
+   "series": "Stanton",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SQUARE-CORNER-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SQUARE-CORNER-CUSTOM-6.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SQUARE-CORNER-CUSTOM-7-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SQUARE-CORNER-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SQUARE-CORNER-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SQUARE-CORNER-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Stanton Square Storage Ottoman",
+   "slug": "stanton-square-storage-ottoman-custom",
+   "series": "Stanton",
+   "shape": "ottoman",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SQUARE-STORAGE-OTTOMAN-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SQUARE-STORAGE-OTTOMAN-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SQUARE-STORAGE-OTTOMAN-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SQUARE-STORAGE-OTTOMAN-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-SQUARE-STORAGE-OTTOMAN-CUSTOM-1.png"
+   ]
+  },
+  {
+   "name": "Stanton Corner Loveseat",
+   "slug": "stanton-corner-loveseat-custom",
+   "series": "Stanton",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-LOVESEAT-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton Corner Sofa",
+   "slug": "stanton-corner-sofa-custom",
+   "series": "Stanton",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-SOFA-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-SOFA-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton Loveseat",
+   "slug": "stanton-loveseat-custom-2",
+   "series": "Stanton",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-LOVESEAT-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-LOVESEAT-CUSTOM-5.png"
+   ]
+  },
+  {
+   "name": "Stanton One-Arm Chair",
+   "slug": "stanton-one-arm-chair-custom",
+   "series": "Stanton",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-CHAIR-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-CHAIR-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-CHAIR-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-CHAIR-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-CHAIR-CUSTOM-4.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-CHAIR-CUSTOM-5.jpeg"
+   ]
+  },
+  {
+   "name": "Stanton One-Arm Loveseat",
+   "slug": "stanton-one-arm-loveseat-custom",
+   "series": "Stanton",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-LOVESEAT-CUSTOM-7.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ONE-ARM-LOVESEAT-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton 2×1 Sectional (Custom)",
+   "slug": "stanton-2-x-1-sectional-custom-2",
+   "series": "Stanton",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/Stanton-2-x-1-Sectional-Custom-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/Stanton-2-x-1-Sectional-Custom-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/Stanton-2-x-1-Sectional-Custom-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/Stanton-2-x-1-Sectional-Custom-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/Stanton-2-x-1-Sectional-Custom-3.png"
+   ]
+  },
+  {
+   "name": "Stanton 2×3 Sectional (Custom)",
+   "slug": "stanton-2-x-3-sectional-custom-2",
+   "series": "Stanton",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/Stanton-2-x-3-Sectional-Custom-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/Stanton-2-x-3-Sectional-Custom-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/Stanton-2-x-3-Sectional-Custom-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/Stanton-2-x-3-Sectional-Custom-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/Stanton-2-x-3-Sectional-Custom-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/Stanton-2-x-3-Sectional-Custom-5.png"
+   ]
+  },
+  {
+   "name": "Stanton Arm Chaise",
+   "slug": "stanton-arm-chaise-custom",
+   "series": "Stanton",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARM-CHAISE-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARM-CHAISE-CUSTOM-6.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARM-CHAISE-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARM-CHAISE-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARM-CHAISE-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARM-CHAISE-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton Arm Chaise Sectional",
+   "slug": "stanton-arm-chaise-sectional-custom",
+   "series": "Stanton",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARM-CHAISE-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARM-CHAISE-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARM-CHAISE-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARM-CHAISE-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARM-CHAISE-SECTIONAL-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton Armless Chair",
+   "slug": "stanton-armless-chair-custom",
+   "series": "Stanton",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-CHAIR-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-CHAIR-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-CHAIR-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-CHAIR-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-CHAIR-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-CHAIR-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton Armless Loveseat",
+   "slug": "stanton-armless-loveseat-custom",
+   "series": "Stanton",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-LOVESEAT-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-LOVESEAT-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-LOVESEAT-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton Armless Sofa",
+   "slug": "stanton-armless-sofa-custom",
+   "series": "Stanton",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-SOFA-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-SOFA-CUSTOM-7.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-ARMLESS-SOFA-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton Chair",
+   "slug": "stanton-chair-custom",
+   "series": "Stanton",
+   "shape": "chair",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CHAIR-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CHAIR-CUSTOM-5.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CHAIR-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CHAIR-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CHAIR-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CHAIR-CUSTOM-4.jpeg"
+   ]
+  },
+  {
+   "name": "Stanton Corner Chaise",
+   "slug": "stanton-corner-chaise-custom",
+   "series": "Stanton",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-CHAISE-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-CHAISE-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-CHAISE-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-CHAISE-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-CHAISE-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Stanton Corner Chaise Sectional",
+   "slug": "stanton-corner-chaise-sectional-custom-2",
+   "series": "Stanton",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-CHAISE-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-CHAISE-SECTIONAL-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-CHAISE-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-CHAISE-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-CHAISE-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/STANTON-CORNER-CHAISE-SECTIONAL-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Isla One-Arm Sofa",
+   "slug": "isla-one-arm-sofa-custom",
+   "series": "Isla",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-SOFA-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-SOFA-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Isla Rectangular Ottoman",
+   "slug": "isla-rectangular-ottoman-custom",
+   "series": "Isla",
+   "shape": "ottoman",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-RECTANGULAR-OTTOMAN-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-RECTANGULAR-OTTOMAN-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-RECTANGULAR-OTTOMAN-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-RECTANGULAR-OTTOMAN-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-RECTANGULAR-OTTOMAN-CUSTOM-4.jpeg"
+   ]
+  },
+  {
+   "name": "Isla Sofa",
+   "slug": "isla-sofa-custom",
+   "series": "Isla",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SOFA-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Isla Square Corner",
+   "slug": "isla-square-corner-custom",
+   "series": "Isla",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SQUARE-CORNER-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SQUARE-CORNER-CUSTOM-5.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SQUARE-CORNER-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SQUARE-CORNER-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SQUARE-CORNER-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SQUARE-CORNER-CUSTOM-4.jpeg"
+   ]
+  },
+  {
+   "name": "Isla Square Ottoman",
+   "slug": "isla-square-ottoman-custom",
+   "series": "Isla",
+   "shape": "ottoman",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SQUARE-OTTOMAN-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SQUARE-OTTOMAN-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SQUARE-OTTOMAN-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SQUARE-OTTOMAN-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-SQUARE-OTTOMAN-CUSTOM-4.jpeg"
+   ]
+  },
+  {
+   "name": "Isla XL Sectional",
+   "slug": "isla-xl-sectional-custom",
+   "series": "Isla",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-XL-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-XL-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-XL-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-XL-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-XL-SECTIONAL-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Isla Corner Chaise Sectional",
+   "slug": "isla-corner-chaise-sectional-custom",
+   "series": "Isla",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CORNER-CHAISE-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CORNER-CHAISE-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CORNER-CHAISE-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CORNER-CHAISE-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CORNER-CHAISE-SECTIONAL-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Isla Loveseat",
+   "slug": "isla-loveseat-custom",
+   "series": "Isla",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-LOVESEAT-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-LOVESEAT-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Isla One-Arm Chair",
+   "slug": "isla-one-arm-chair-custom",
+   "series": "Isla",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-CHAIR-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-CHAIR-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-CHAIR-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-CHAIR-CUSTOM-2.jpeg"
+   ]
+  },
+  {
+   "name": "Isla One-Arm Loveseat",
+   "slug": "isla-one-arm-loveseat-custom",
+   "series": "Isla",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-LOVESEAT-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-LOVESEAT-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-LOVESEAT-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ONE-ARM-LOVESEAT-CUSTOM-3.jpeg"
+   ]
+  },
+  {
+   "name": "Isla 2×1 Sectional",
+   "slug": "isla-2-x-1-sectional-custom",
+   "series": "Isla",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-1-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-1-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-1-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-1-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-1-SECTIONAL-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Isla 2×2 Sectional",
+   "slug": "isla-2-x-2-sectional-custom",
+   "series": "Isla",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-2-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-2-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-2-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-2-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-2-SECTIONAL-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Isla 2×3 Sectional",
+   "slug": "isla-2-x-3-sectional-custom",
+   "series": "Isla",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-3-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-3-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-3-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-3-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-3-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-2-X-3-SECTIONAL-CUSTOM-5.png"
+   ]
+  },
+  {
+   "name": "Isla Arm Chaise",
+   "slug": "isla-arm-chaise-custom",
+   "series": "Isla",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Isla Arm Chaise Sectional",
+   "slug": "isla-arm-chaise-sectional-custom",
+   "series": "Isla",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-SECTIONAL-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARM-CHAISE-SECTIONAL-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Isla Armless Chair",
+   "slug": "isla-armless-chair-custom",
+   "series": "Isla",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-CHAIR-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-CHAIR-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-CHAIR-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-CHAIR-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-CHAIR-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Isla Armless Loveseat",
+   "slug": "isla-armless-loveseat-custom",
+   "series": "Isla",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-LOVESEAT-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-LOVESEAT-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Isla Armless Loveseat",
+   "slug": "isla-armless-loveseat-custom-2",
+   "series": "Isla",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-SOFA-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-ARMLESS-SOFA-CUSTOM-1.png"
+   ]
+  },
+  {
+   "name": "Isla Chair",
+   "slug": "isla-chair-custom",
+   "series": "Isla",
+   "shape": "chair",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CHAIR-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CHAIR-CUSTOM-4.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CHAIR-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CHAIR-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CHAIR-CUSTOM-3.jpeg"
+   ]
+  },
+  {
+   "name": "Isla Corner Chaise",
+   "slug": "isla-corner-chaise-custom",
+   "series": "Isla",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CORNER-CHAISE-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CORNER-CHAISE-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CORNER-CHAISE-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CORNER-CHAISE-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CORNER-CHAISE-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/ISLA-CORNER-CHAISE-CUSTOM-5.png"
+   ]
+  },
+  {
+   "name": "Nimbus Ottoman",
+   "slug": "nimbus-ottoman-custom",
+   "series": "Nimbus",
+   "shape": "ottoman",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-OTTOMAN-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-OTTOMAN-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-OTTOMAN-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-OTTOMAN-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-OTTOMAN-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Nimbus Modular XL Sofa",
+   "slug": "nimbus-modular-xl-sofa-custom",
+   "series": "Nimbus",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-XL-SOFA-CUSTOM-4.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-XL-SOFA-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-XL-SOFA-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-XL-SOFA-CUSTOM-4.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-XL-SOFA-CUSTOM-1.jpeg"
+   ]
+  },
+  {
+   "name": "Nimbus 2×2 Modular Sectional",
+   "slug": "nimbus-2-x-2-modular-sectional-custom",
+   "series": "Nimbus",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-2-X-2-MODULAR-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-2-X-2-MODULAR-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-2-X-2-MODULAR-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-2-X-2-MODULAR-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-2-X-2-MODULAR-SECTIONAL-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Nimbus 2×3 Modular Sectional",
+   "slug": "nimbus-2-x-3-modular-sectional-custom",
+   "series": "Nimbus",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-2-X-3-MODULAR-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-2-X-3-MODULAR-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-2-X-3-MODULAR-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-2-X-3-MODULAR-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-2-X-3-MODULAR-SECTIONAL-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Nimbus Armless Chair",
+   "slug": "nimbus-armless-chair-custom",
+   "series": "Nimbus",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-ARMLESS-CHAIR-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-ARMLESS-CHAIR-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-ARMLESS-CHAIR-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-ARMLESS-CHAIR-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-ARMLESS-CHAIR-CUSTOM-4.jpeg"
+   ]
+  },
+  {
+   "name": "Nimbus Chaise",
+   "slug": "nimbus-chaise-custom",
+   "series": "Nimbus",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-CHAISE-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-CHAISE-CUSTOM-6.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-CHAISE-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-CHAISE-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-CHAISE-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-CHAISE-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Nimbus Corner Chair",
+   "slug": "nimbus-corner-chair-custom",
+   "series": "Nimbus",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-CORNER-CHAIR-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-CORNER-CHAIR-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-CORNER-CHAIR-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-CORNER-CHAIR-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-CORNER-CHAIR-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Nimbus Modular Chaise Sectional",
+   "slug": "nimbus-modular-chaise-sectional-custom",
+   "series": "Nimbus",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-CHAISE-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-CHAISE-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-CHAISE-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-CHAISE-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-CHAISE-SECTIONAL-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Nimbus Modular Loveseat &#038; Ottoman",
+   "slug": "nimbus-modular-loveseat-ottoman-custom",
+   "series": "Nimbus",
+   "shape": "ottoman",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-LOVESEAT-OTTOMAN-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-LOVESEAT-OTTOMAN-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-LOVESEAT-OTTOMAN-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-LOVESEAT-OTTOMAN-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-LOVESEAT-OTTOMAN-CUSTOM-1.png"
+   ]
+  },
+  {
+   "name": "Nimbus Modular Loveseat",
+   "slug": "nimbus-modular-loveseat-custom",
+   "series": "Nimbus",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-LOVESEAT-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-LOVESEAT-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Nimbus Modular Sectional &#038; Ottoman",
+   "slug": "nimbus-modular-sectional-ottoman-custom",
+   "series": "Nimbus",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SECTIONAL-OTTOMANS-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SECTIONAL-OTTOMANS-CUSTOM-4-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SECTIONAL-OTTOMAN-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SECTIONAL-OTTOMAN-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SECTIONAL-OTTOMAN-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SECTIONAL-OTTOMAN-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Nimbus Modular Sectional",
+   "slug": "nimbus-modular-sectional-custom",
+   "series": "Nimbus",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SECTIONAL-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Nimbus Modular Sofa &#038; Ottoman",
+   "slug": "nimbus-modular-sofa-ottoman-custom",
+   "series": "Nimbus",
+   "shape": "ottoman",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SOFA-OTTOMAN-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SOFA-OTTOMAN-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SOFA-OTTOMAN-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SOFA-OTTOMAN-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SOFA-OTTOMAN-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Nimbus Modular Sofa",
+   "slug": "nimbus-modular-sofa-custom",
+   "series": "Nimbus",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/NIMBUS-MODULAR-SOFA-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Paloma XL Sofa",
+   "slug": "paloma-xl-sofa-custom",
+   "series": "Paloma",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-XL-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-XL-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-XL-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-XL-SOFA-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Paloma 2×2 Sectional &#038; Ottoman",
+   "slug": "paloma-2-x-2-sectional-ottoman-custom",
+   "series": "Paloma",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-2-X-2-SECTIONAL-OTTOMAN-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-2-X-2-SECTIONAL-OTTOMAN-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-2-X-2-SECTIONAL-OTTOMAN-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-2-X-2-SECTIONAL-OTTOMAN-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-2-X-2-SECTIONAL-OTTOMAN-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-2-X-2-SECTIONAL-OTTOMAN-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Paloma 2×2 Sectional &#038; Ottoman",
+   "slug": "paloma-2-x-2-sectional-ottoman-custom-2",
+   "series": "Paloma",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-2-X-2-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-2-X-2-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-2-X-2-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-2-X-2-SECTIONAL-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Paloma 4×4 Sectional",
+   "slug": "paloma-4-x-4-sectional-custom",
+   "series": "Paloma",
+   "shape": "u-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-4-X-4-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-4-X-4-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-4-X-4-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-4-X-4-SECTIONAL-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Paloma Armless Loveseat",
+   "slug": "paloma-armless-loveseat-custom",
+   "series": "Paloma",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-ARMLESS-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-ARMLESS-LOVESEAT-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-ARMLESS-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-ARMLESS-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-ARMLESS-LOVESEAT-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Paloma Corner Wedge",
+   "slug": "paloma-chair-custom",
+   "series": "Paloma",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-CORNER-WEDGE-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-CORNER-WEDGE-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-CORNER-WEDGE-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-CORNER-WEDGE-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-CORNER-WEDGE-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Paloma One-Arm Loveseat",
+   "slug": "paloma-one-arm-loveseat-custom",
+   "series": "Paloma",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-ONE-ARM-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-ONE-ARM-LOVESEAT-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-ONE-ARM-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-ONE-ARM-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-ONE-ARM-LOVESEAT-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Paloma Ottoman",
+   "slug": "paloma-ottoman-custom",
+   "series": "Paloma",
+   "shape": "ottoman",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-OTTOMAN-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-OTTOMAN-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-OTTOMAN-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-OTTOMAN-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-OTTOMAN-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Paloma Sofa",
+   "slug": "paloma-sofa-custom",
+   "series": "Paloma",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-SOFA-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Paloma U-Sectional",
+   "slug": "paloma-u-sectional-custom",
+   "series": "Paloma",
+   "shape": "u-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-U-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-U-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-U-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-U-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-U-SECTIONAL-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Paloma XL Sofa &#038; Ottoman",
+   "slug": "paloma-xl-sofa-ottoman-custom",
+   "series": "Paloma",
+   "shape": "ottoman",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-XL-SOFA-OTTOMAN-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-XL-SOFA-OTTOMAN-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-XL-SOFA-OTTOMAN-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/PALOMA-XL-SOFA-OTTOMAN-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Diane One-Arm Chair",
+   "slug": "diane-one-arm-chair-custom",
+   "series": "Diane",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-CHAIR-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-CHAIR-CUSTOM-5.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-CHAIR-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-CHAIR-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-CHAIR-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-CHAIR-CUSTOM-4.jpeg"
+   ]
+  },
+  {
+   "name": "Diane One-Arm Loveseat",
+   "slug": "diane-one-arm-loveseat-custom",
+   "series": "Diane",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-LOVESEAT-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Diane One-Arm Sofa",
+   "slug": "diane-one-arm-sofa-custom",
+   "series": "Diane",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ONE-ARM-SOFA-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Diane Sofa",
+   "slug": "diane-sofa-custom",
+   "series": "Diane",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-SOFA-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Diane Square Corner",
+   "slug": "diane-square-corner-custom",
+   "series": "Diane",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-SQUARE-CORNER-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-SQUARE-CORNER-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-SQUARE-CORNER-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-SQUARE-CORNER-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-SQUARE-CORNER-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Diane Armless Loveseat",
+   "slug": "diane-armless-loveseat-custom",
+   "series": "Diane",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-LOVESEAT-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-LOVESEAT-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Diane Armless Sofa",
+   "slug": "diane-armless-sofa-custom",
+   "series": "Diane",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-SOFA-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Diane Chair",
+   "slug": "diane-chair-custom",
+   "series": "Diane",
+   "shape": "chair",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-CHAIR-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-CHAIR-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-CHAIR-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-CHAIR-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Diane Loveseat",
+   "slug": "diane-loveseat-custom",
+   "series": "Diane",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-LOVESEAT-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-LOVESEAT-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Diane Armless Chair",
+   "slug": "diane-armless-chair-custom",
+   "series": "Diane",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-CHAIR-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-CHAIR-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-CHAIR-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARMLESS-CHAIR-CUSTOM-2.jpeg"
+   ]
+  },
+  {
+   "name": "Diane Arm Chaise Sectional",
+   "slug": "diane-arm-chaise-sectional-custom",
+   "series": "Diane",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARM-CHAISE-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARM-CHAISE-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARM-CHAISE-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARM-CHAISE-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARM-CHAISE-SECTIONAL-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Diane Arm Chaise",
+   "slug": "diane-arm-chaise-custom",
+   "series": "Diane",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARM-CHAISE-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARM-CHAISE-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARM-CHAISE-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARM-CHAISE-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-ARM-CHAISE-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Diane 2×3 Sectional",
+   "slug": "diane-2-x-3-sectional-custom",
+   "series": "Diane",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-3-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-3-SECTIONAL-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-3-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-3-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-3-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-3-SECTIONAL-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Diane 2×2 Sectional",
+   "slug": "diane-2-x-2-sectional-custom",
+   "series": "Diane",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-2-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-2-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-2-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-2-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-2-SECTIONAL-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Bobby Armless Chair",
+   "slug": "stanton-xl-sectional-custom-2",
+   "series": "Bobby",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-ARMLESS-CHAIR-CUSTOM-4.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-ARMLESS-CHAIR-CUSTOM-4.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-ARMLESS-CHAIR-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-ARMLESS-CHAIR-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-ARMLESS-CHAIR-CUSTOM-3.jpeg"
+   ]
+  },
+  {
+   "name": "Bobby Corner Chair",
+   "slug": "stanton-loveseat-custom",
+   "series": "Bobby",
+   "shape": "modular",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-CORNER-CHAIR-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-CORNER-CHAIR-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-CORNER-CHAIR-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-CORNER-CHAIR-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-CORNER-CHAIR-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-CORNER-CHAIR-CUSTOM-2.png"
+   ]
+  },
+  {
+   "name": "Bobby Modular 2×1 Sectional",
+   "slug": "stanton-sofa-custom",
+   "series": "Bobby",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-2-X-1-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-2-X-1-SECTIONAL-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-2-X-1-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-2-X-1-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-2-X-1-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-2-X-1-SECTIONAL-CUSTOM-4.png"
+   ]
+  },
+  {
+   "name": "Bobby Modular 2×2 Sectional",
+   "slug": "stanton-corner-chaise-sectional-custom",
+   "series": "Bobby",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-2-X-2-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-2-X-2-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-2-X-2-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-2-X-2-SECTIONAL-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Bobby Modular Chaise Sectional",
+   "slug": "stanton-2-x-1-sectional-custom",
+   "series": "Bobby",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-CHAISE-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-CHAISE-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-CHAISE-SECTIONAL-CUSTOM-5.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-CHAISE-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-CHAISE-SECTIONAL-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Bobby Modular Loveseat",
+   "slug": "bobby-modular-loveseat-custom",
+   "series": "Bobby",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-LOVESEAT-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-LOVESEAT-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-LOVESEAT-CUSTOM-3.png"
+   ]
+  },
+  {
+   "name": "Bobby Modular Sofa",
+   "slug": "stanton-xl-sectional-custom",
+   "series": "Bobby",
+   "shape": "straight",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-SOFA-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-SOFA-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-SOFA-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-SOFA-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-MODULAR-SOFA-CUSTOM-5.png"
+   ]
+  },
+  {
+   "name": "Bobby Ottoman",
+   "slug": "stanton-2-x-3-sectional-custom",
+   "series": "Bobby",
+   "shape": "ottoman",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-OTTOMAN-CUSTOM-4.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-OTTOMAN-CUSTOM-1.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-OTTOMAN-CUSTOM-2.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-OTTOMAN-CUSTOM-3.jpeg",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/BOBBY-OTTOMAN-CUSTOM-4.jpeg"
+   ]
+  },
+  {
+   "name": "Diane 2×1 Sectional",
+   "slug": "stanton-2-x-2-sectional-custom-3",
+   "series": "Diane",
+   "shape": "l-shape",
+   "price": 440000,
+   "regularPrice": 654500,
+   "images": [
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-1-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-1-SECTIONAL-CUSTOM-1.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-1-SECTIONAL-CUSTOM-2.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-1-SECTIONAL-CUSTOM-3.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-1-SECTIONAL-CUSTOM-4.png",
+    "https://thesofaco.ca/wp-content/uploads/2026/07/DIANE-2-X-1-SECTIONAL-CUSTOM-5.png"
+   ]
+  }
+ ]
+}

@@ -2,7 +2,8 @@
 
 > **Status:** Split ho chuka hai. `backend/` aur `frontend/` ab do alag apps
 > hain, dono chal rahe hain, saare tests pass hain. Frontend Next.js pe shift ho
-> gaya hai aur SEO live hai. Postgres/Sequelize migration abhi baqi hai.
+> gaya hai, SEO live hai, aur analytics + pixels bhi lag chuke hain.
+> Postgres/Sequelize migration abhi baqi hai.
 
 ---
 
@@ -16,7 +17,7 @@
 | SEO | Zero — Google ko khali `<div id="root">` milta tha | **Live** — server-rendered HTML, per-page meta, JSON-LD, sitemap |
 | Admin panel | Google dekh sakta tha | `noindex, nofollow` |
 | MySQL + Drizzle | MariaDB pe migration toot-ti hai | *abhi wahi hai — point 6* |
-| Analytics | Koi nahi | *abhi bhi koi nahi — point 7* |
+| Analytics | Koi nahi | **Live** — 3 browser pixels + server CAPI, consent ke peechay |
 
 Ab dono alag deploy ho sakte hain aur alag scale ho sakte hain.
 
@@ -71,9 +72,12 @@ backend/src/
 │   ├── app.router.ts       sab routers yahan register hote hain
 │   ├── commerce/           commerce.router.ts + catalog.fallback.ts
 │   ├── admin/              admin.router.ts
-│   └── auth/ cart/ catalog/ orders/ reviews/
-│       inquiries/ content/ analytics/                                 [khali]
-├── integrations/    storage.ts (S3)                                   [Shopify/LLM/pixels pending]
+│   ├── analytics/          analytics.router.ts  (events + CAPI forward)
+│   ├── settings/           settings.router.ts + settings.service.ts
+│   ├── catalog/            productOptions.router.ts
+│   ├── auth/               devAuth.ts
+│   └── cart/ orders/ reviews/ inquiries/ content/                     [khali]
+├── integrations/    storage.ts (S3) + pixels/ (Meta CAPI, TikTok Events)  [bhara hua]
 ├── middlewares/     auth, admin guard, error handler                  [khali]
 ├── jobs/            cron / background kaam                            [khali]
 ├── config/ utils/ types/                                              [khali]
@@ -123,7 +127,7 @@ frontend/src/
 ├── features/            catalog/ cart/ checkout/ account/ admin/ studio/  [khali]
 ├── lib/
 │   ├── api/             config.ts (browser) + server.ts (server-only)
-│   ├── analytics/       <- pixels + tracking                              [khali]
+│   ├── analytics/       tracker + consent + providers/                    [bhara hua]
 │   ├── seo/             site.ts + jsonLd.ts
 │   └── browserStorage.ts  SSR-safe localStorage/sessionStorage
 ├── hooks/  contexts/  styles/  types/
@@ -204,19 +208,28 @@ migration me kar dunga.
 
 ## 7. Analytics & Pixels
 
-Do taraf se track karenge — dono zaroori hain:
+**Ye ho chuka hai.** Do taraf se track hota hai — dono zaroori hain:
 
 ```
+shared/analytics/events.ts           <- ek hi event vocabulary, dono taraf
+
 frontend/src/lib/analytics/          backend/src/modules/analytics/
-  tracker.ts    <- ek hi entry        + integrations/pixels/
-  events.ts     <- typed event list       facebook-capi.ts
-  consent.ts    <- GDPR gate              tiktok-events.ts
-  providers/
-    facebook-pixel.ts
+  tracker.tsx   <- ek hi entry         analytics.router.ts
+  items.ts      <- cents -> dollars  backend/src/integrations/pixels/
+  consent.ts    <- GDPR gate           facebook-capi.ts
+  ConsentBanner.tsx                    tiktok-events.ts
+  providers/                           hash.ts (SHA-256 PII)
+    facebook-pixel.ts                  transport.ts
     tiktok-pixel.ts
     ga4.ts
-    internal.ts
 ```
+
+`TrackingProvider` sirf `(storefront)` layout me mounted hai — admin aur account
+screens shopper journey nahi hain, wahan koi ad pixel kabhi fire nahi hoga.
+
+**Paisa:** catalog cents me rakhta hai, pixels dollars parhte hain. Isi liye har
+call site `lib/analytics/items.ts` se guzarta hai — ek jagah conversion, warna
+$4,400 ka sofa $440,000 report ho kar poori ROAS reporting kharab kar deta.
 
 ### Ek call, sab jagah
 
@@ -296,7 +309,7 @@ project ko independent aur scalable bana rahe hain.
 | 7 | Backend modules — tRPC se REST `/api/v1/*` | pending |
 | 8 | Storefront pages ko server-side data fetching | pending |
 | 9 | `views/` se `features/` me shift | pending |
-| 10 | Analytics + pixels lagana | pending |
+| 10 | Analytics + pixels lagana | **ho gaya** |
 
 ### Ab jo baqi hai us me sab se ahem
 
@@ -309,6 +322,11 @@ hai.
 
 **Purana code:** `client/`, `server/`, `drizzle/` ab mojood nahi — sab kuch
 `git mv` se shift hua hai, to history salamat hai aur rollback mumkin hai.
+
+**Analytics ka baqi hissa:** events ab poore storefront se fire hote hain
+(`view_item`, `add_to_cart`, `purchase` waghera). Jo abhi nahi hua wo hai
+behaviour tracking — scroll depth, product pe kitna ruka, cart kahan chhora.
+Uske liye alag events chahiye jo `shared/analytics/events.ts` me abhi nahi hain.
 
 ---
 

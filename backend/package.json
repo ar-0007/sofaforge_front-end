@@ -1,0 +1,41 @@
+{
+  "name": "@sofa/backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "esbuild src/server.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "start": "node dist/server.js",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit generate && drizzle-kit migrate",
+    "db:seed": "tsx src/db/seeders/seed.ts",
+    "create-admin": "tsx scripts/create-admin.ts",
+    "shopify:probe": "tsx scripts/shopify-probe.runner.ts"
+  },
+  "dependencies": {
+    "@trpc/server": "^11.6.0",
+    "axios": "^1.12.0",
+    "cookie": "^1.0.2",
+    "dotenv": "^17.2.2",
+    "drizzle-orm": "^0.44.5",
+    "express": "^4.21.2",
+    "jose": "6.1.0",
+    "mysql2": "^3.15.0",
+    "superjson": "^1.13.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/express": "4.17.21",
+    "@types/node": "^24.7.0",
+    "drizzle-kit": "^0.31.4",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.19.1",
+    "typescript": "5.9.3",
+    "vitest": "^2.1.4"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@sofa/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Types and constants used by both backend and frontend. Consumed as source via the @shared/* path alias.",
+  "exports": {
+    "./*": "./*"
+  }
+}
